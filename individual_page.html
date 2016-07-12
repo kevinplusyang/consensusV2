@@ -25,7 +25,7 @@ var g = svg.append('g')
                 .attr("width", width)
                 .attr('transform', 'translate(20, 10)');
 
-var data1 = [{rect:1, name:"overall"},{rect:2, name:"academic"},{rect:3, name:"extra curricular"},{rect:4, name:"recommondation letter"}];
+var data1 = [{rect:0, name:"overall"},{rect:1, name:"academic"},{rect:2, name:"extra curricular"},{rect:3, name:"recommondation letter"}];
 
 var title_width = 150;
 var rect_height = 5, rect_width=300;
@@ -36,21 +36,24 @@ var rect = g
                 .selectAll('rect')
                 .data(data1)
                 .enter()
-                .append('g');
+                .append('g')
+                .classed("bar", true)
+                .attr("id", function(d) {return "a" + d.rect.toString();})
+                ;
 
 rect
                 .append("text")
                 .attr("x", title_width)
-                .attr("y", function(d){return d.rect * padding_y + 5})
+                .attr("y", function(d){return (d.rect + 1) * padding_y + 5})
                 .attr("text-anchor", "end")
                 .text(function(d){return d.name;});
 rect
                 .append('rect')
-                .classed("bar", true)
                 .attr("x", title_width + padding_x)
-                .attr('y', function(d){return d.rect * padding_y;})
+                .attr('y', function(d){return (d.rect + 1) * padding_y;})
                 .attr("height", rect_height)
-                .attr("width", rect_width);
+                .attr("width", rect_width)
+                .attr("fill", "#C0C0C0");
 
 
 var score=new Array();
@@ -59,7 +62,7 @@ for (var k = 0; k<4; k++){
 }
 
 var color = new Array("green", "blue", "yellow", "purple", "orange", "brown", "Chartreuse", "Cyan");
-//add feature: score, conflict
+
 var data2 = [{row: 0, col: 1, score: 1, conflict: 0.2, id:"01"},
             {row:0, col: 2, score: 9, conflict: 0.8, id:"02"},
             {row:0, col: 3, score: 8, conflict: 0.9, id:"03"},
@@ -76,27 +79,25 @@ var data2 = [{row: 0, col: 1, score: 1, conflict: 0.2, id:"01"},
            {row:3, col: 2, score: 3, conflict: 0.7, id:"32"},
            {row:3, col: 3, score: 8, conflict: 0.6, id:"33"}
 ];
-//won't call drag
 
 var circle = g
     .selectAll("circle")
     .data(data2)
     .enter()
     .append("g")
+    .classed("handler", true)
+    .attr("id", function(d) {return "a" + d.id.toString(); })
     .call(drag);
-//x changed
+
     circle
     .append("circle")
-    .classed("handler", true)
     .attr("r", 10)
     .attr("cx", function(d) { return d.x = 480 + d.col * 30; })
     .attr("cy", function(d) { return d.y = padding_y * (d.row + 1); })
-            .attr("id", function(d) {return d.id;})
     .attr("fill", function(d) {return color[d.col - 1];});
 
     
 
-//x changed
     circle
     .append("text")
     .attr("x", function(d){return d.x - 8;})
