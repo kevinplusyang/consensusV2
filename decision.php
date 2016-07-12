@@ -25,6 +25,12 @@ require_once "dbaccess.php";
     }
 
 </script>
+I'm:
+<?php
+echo $_SESSION['username'];
+
+?>
+
 
 <?php echo $_GET['user'];?>
 
@@ -212,6 +218,10 @@ require_once "dbaccess.php";
     }
     ?>
 
+</div>
+
+<div>
+    <a href="overall.php?decision_id=<?php echo $_GET['decision_id']?>">Overall Page</a>
 </div>
 
 
