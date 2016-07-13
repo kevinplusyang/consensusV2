@@ -16,7 +16,12 @@ require_once "dbaccess.php";
 echo $_POST['invitation_code'];
 $decision_id = $_POST['invitation_code'];
 
-mysql_query("insert into participate values('','".$decision_id."','".$_SESSION['user_id']."')");
+$sql_count = "select count(*) from participate where decision_id = '".$decision_id."' ";
+$result_count = mysql_query($sql_count);
+$row_count = mysql_fetch_array( $result_count );
+$user_num = $row_count[0]+1;
+
+mysql_query("insert into participate values('','".$decision_id."','".$user_num."','".$_SESSION['user_id']."')");
 
 
 mysql_query("insert into score values('','".$decision_id."','".$_SESSION['user_id']."','1','1','100')");

@@ -25,7 +25,7 @@ for($criteria_id = 0; $criteria_id<=3; $criteria_id++ ){
         $temp_3 = 0.00;
         while($row_2 = mysql_fetch_array($result_2)){
             $temp_2 = $row_2['score'];
-            $temp_3 = ($temp_2 - $avg)*($temp_2 - $avg);
+            $temp_3 = $temp_3 + ($temp_2 - $avg)*($temp_2 - $avg);
         }
         $sd = $temp_3/$user_num;
 
@@ -37,8 +37,9 @@ for($criteria_id = 0; $criteria_id<=3; $criteria_id++ ){
 }
 
 
-$result = mysql_query("select * from overall where decision_id = '".$_GET['decision_id']."' ");
+//$result = mysql_query("select * from conflict where decision_id = '".$_GET['decision_id']."' ");
 
+$result = mysql_query("select * from score where decision_id = '".$_GET['decision_id']."'");
 
 while($row = mysql_fetch_row($result)){
     $all[]=($row);

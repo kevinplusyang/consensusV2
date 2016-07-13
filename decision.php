@@ -5,6 +5,8 @@ require_once "dbaccess.php";
 
 <!DOCTYPE html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,6 +25,8 @@ require_once "dbaccess.php";
             scores[k][j]=0;    //这里将变量初始化，我这边统一初始化为空，后面在用所需的值覆盖里面的值
         }
     }
+
+
 
 </script>
 I'm:
@@ -248,6 +252,48 @@ echo $_SESSION['username'];
 </script>
 
 <script>
+    var criteria_id_init = 0;
+    var candidate_id_init = 0;
+
+    var str = "[";
+
+    for(criteria_id_init = 0; criteria_id_init <= 3; criteria_id_init++){
+
+        for(candidate_id_init = 1; candidate_id_init <=3; candidate_id_init++){
+            str = str + "{row: ";
+            str = str + criteria_id_init;
+            str = str +", col: ";
+            str = str +candidate_id_init;
+            str = str + ", score: ";
+            str = str + scores[criteria_id_init][candidate_id_init];
+            str = str + ", conflict: 0, id:";
+            str = str + criteria_id_init;
+            str = str + candidate_id_init;
+
+            if(criteria_id_init ==3 && candidate_id_init ==3){
+                str = str + "}"
+
+            }else {
+                str = str + "},"
+            }
+
+        }
+
+
+    }
+    str = str + "]"
+
+//    console.log(str);
+
+</script>
+
+<!--<script src="individual_page.js"></script>-->
+
+
+
+
+
+<script>
     function change(x){
 
         var num = document.getElementById(x).value;
@@ -261,6 +307,8 @@ echo $_SESSION['username'];
 
         var newData = calculate(candidate_id, criteria_id);
 
+        updateTableOverall(criteria_id, candidate_id, newData);
+
         document.getElementById("0"+candidate_id+"").innerHTML = newData;
 
         save();
@@ -272,6 +320,11 @@ echo $_SESSION['username'];
     function updateTable(criteria_id, candidate_id, num){
         num = parseFloat(num);
         scores[criteria_id][candidate_id] = num;
+    }
+
+    function updateTableOverall(criteria_id, candidate_id, num){
+        num = parseFloat(num);
+        scores[0][candidate_id] = num;
     }
 
     function calculate(candidate_id, criteria_id){

@@ -33,7 +33,7 @@ $data = json_decode(stripslashes($_POST['trans_data']));
 //mysql_query("insert into debug values('','".$data[1][3]."')");
 
 
-for($i = 1; $i<=3; $i++){
+for($i = 0; $i<=3; $i++){
     for($k = 1; $k<=4; $k++){
         mysql_query("update score set score = '".$data[$i][$k]."' where decision_id = '".$_GET['decision_id']."' and user_id = '".$_GET['user_id']."' and criteria_id = '".$i."' and candidate_id = '".$k."' ");
     }

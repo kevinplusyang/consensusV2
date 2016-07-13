@@ -24,7 +24,7 @@ $row = mysql_fetch_array($result);
 $decision_id = $row['id'];
 
 
-mysql_query("insert into participate values('','".$decision_id."','".$_SESSION['user_id']."')");
+mysql_query("insert into participate values('','".$decision_id."','1','".$_SESSION['user_id']."')");
 
 mysql_query("insert into candidate values('','".$decision_id."','Betsy','')");
 mysql_query("insert into candidate values('','".$decision_id."','Joyce','')");
