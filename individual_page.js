@@ -4,19 +4,24 @@ var drag = d3.behavior.drag()
     .origin(Object)
     .on("drag", dragMove)
     .on('dragend', dragEnd);
+
 var svg = d3.select('body')
     .append('svg')
     .attr("height", height)
     .attr("width", width);
+
 var g = svg.append('g')
     .attr("height", height)
     .attr("width", width)
     .attr('transform', 'translate(20, 10)');
+
 var data1 = [{rect:0, name:"overall"},{rect:1, name:"academic"},{rect:2, name:"extra curricular"},{rect:3, name:"recommondation letter"}];
+
 var title_width = 150;
 var rect_height = 5, rect_width=300;
 var padding_x = 10;
 var padding_y = 60;
+
 var rect = g
     .selectAll('rect')
     .data(data1)
@@ -25,6 +30,7 @@ var rect = g
     .classed("bar", true)
     .attr("id", function(d) {return "a" + d.rect.toString();})
     ;
+
 rect
     .append("text")
     .attr("x", title_width)
@@ -38,26 +44,31 @@ rect
     .attr("height", rect_height)
     .attr("width", rect_width)
     .attr("fill", "#C0C0C0");
-var score=new Array();
-for (var k = 0; k<4; k++){
-    score[k] = 0;
-}
+
+
+
 var color = new Array("green", "blue", "yellow", "purple", "orange", "brown", "Chartreuse", "Cyan");
+
 // var data2 = [{row: 0, col: 1, score: 1, conflict: 0.2, id:"01"},
 //     {row:0, col: 2, score: 9, conflict: 0.8, id:"02"},
 //     {row:0, col: 3, score: 8, conflict: 0.9, id:"03"},
+//
 //     {row: 1, col: 1, score: 3, conflict: 0.4, id:"11"},
 //     {row:1, col: 2, score: 7, conflict: 0.8, id:"12"},
-//     {row:1, col: 3, scoree: 6, conflict: 0.6, id:"13"},
+//     {row:1, col: 3, score: 6, conflict: 0.6, id:"13"},
+//
 //     {row: 2, col: 1, score: 4, conflict: 0.5, id:"21"},
-//     {row:2, col: 2, scor: 9, conflict: 0.4, id:"22"},
+//     {row:2, col: 2, score: 9, conflict: 0.4, id:"22"},
 //     {row:2, col: 3, score: 1, conflict: 0.9, id:"23"},
+//
 //     {row: 3, col: 1, score: 2, conflict: 0.4, id:"31"},
 //     {row:3, col: 2, score: 3, conflict: 0.7, id:"32"},
 //     {row:3, col: 3, score: 8, conflict: 0.6, id:"33"}
 // ];
 
-var data2 = str;
+
+
+var data2 = eval('(' + str + ')');
 
 console.log(data2);
 
@@ -67,8 +78,9 @@ var circle = g
     .enter()
     .append("g")
     .classed("handler", true)
-    .attr("id", function(d) {return "a" + d.id.toString(); })
+    .attr("id", function(d) {console.log(d.id); return "a" + d.id.toString(); })
     .call(drag);
+
 circle
     .append("circle")
     .attr("r", 10)
@@ -76,11 +88,17 @@ circle
     .attr("cy", function(d) { return d.y = padding_y * (d.row + 1); })
     .attr("fill", function(d) {return color[d.col - 1];});
 
+
+
 circle
     .append("text")
     .attr("x", function(d){return d.x - 8;})
     .attr("y", function(d){return d.y - 10;})
     .text('');
+
+
+
+
 
 function dragMove(d) {
     d3.select(this)
@@ -94,18 +112,33 @@ function dragMove(d) {
             x = Math.min(x, 10);
             x = Math.max(0, x);
             return x;
+
         })
         .attr("x", d.x = Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x))-4);
+
 }
-function dragEnd() {
+
+function dragEnd(d) {
+    console.log(d);
     d3.select(this)
         .select('circle')
         .attr('opacity', 1);
     d3.select(this)
         .select("text")
         .text('');
-    score[1] = 10;
+
+
+    var score_num = d3.round((d3.event.x - title_width - padding_x)/30);
+
+
+    scores[d.row][d.col] = score_num;
+
+
+
+    console.log(scores);
+    tableChanged(d.row, d.col, score_num);
 }
+
 /* legend */
 var candid = [{candid: "Betsy"}, {candid: "Chris"}, {candid: "Ross"}]
 var legend_height = 10;
@@ -130,6 +163,7 @@ legend.append('circle')
     .attr("r", 5)
     .style('fill', function(d, i) { return color[i];})
     .style('stroke', function(d, i) {return color[i];});
+
 legend.append('text')
     .attr('x', 8)
     .attr('y', function(d, i) {

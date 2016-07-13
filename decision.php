@@ -14,13 +14,37 @@ require_once "dbaccess.php";
 </head>
 <body>
 
+
+I'm:
+<?php
+echo $_SESSION['username'];
+
+$result = mysql_query("select * from decision where id = '".$_GET['decision_id']."'");
+$row = mysql_fetch_array($result);
+
+$criteria_num =$row['criteria_num'];
+$candidate_num = $row['candidate_num'];
+$user_num = $row['user_num'];
+
+?>
+
+
+<?php echo $_GET['user'];?>
+
+
 <script>
+    var criteria_num = parseInt(<?php echo $criteria_num;?>);
+    var candidate_num = parseInt(<?php echo $candidate_num;?>);
+    var user_num = parseInt(<?php echo $user_num;?>);
+
+
+
     scores = new Array();
-    for(var k=0;k<4;k++){    //一维长度为i,i为变量，可以根据实际情况改变
+    for(var k=0;k<criteria_num+1;k++){    //一维长度为i,i为变量，可以根据实际情况改变
 
         scores[k]=new Array();  //声明二维，每一个一维数组里面的一个元素都是一个数组；
 
-        for(var j=0;j<4;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
+        for(var j=0;j<candidate_num;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
 
             scores[k][j]=0;    //这里将变量初始化，我这边统一初始化为空，后面在用所需的值覆盖里面的值
         }
@@ -29,14 +53,7 @@ require_once "dbaccess.php";
 
 
 </script>
-I'm:
-<?php
-echo $_SESSION['username'];
 
-?>
-
-
-<?php echo $_GET['user'];?>
 
 <table border="1">
     <tr>
@@ -265,10 +282,11 @@ echo $_SESSION['username'];
             str = str +", col: ";
             str = str +candidate_id_init;
             str = str + ", score: ";
-            str = str + scores[criteria_id_init][candidate_id_init];
-            str = str + ", conflict: 0, id:";
+            str = str + scores[criteria_id_init][candidate_id_init]/10;
+            str = str + ", conflict: 0, id:\"";
             str = str + criteria_id_init;
             str = str + candidate_id_init;
+            str = str + "\""
 
             if(criteria_id_init ==3 && candidate_id_init ==3){
                 str = str + "}"
@@ -283,11 +301,11 @@ echo $_SESSION['username'];
     }
     str = str + "]"
 
-//    console.log(str);
+    console.log(str);
 
 </script>
 
-<!--<script src="individual_page.js"></script>-->
+<script src="individual_page.js"></script>
 
 
 
