@@ -89,15 +89,13 @@ $user_num = $row['user_num'];
 
         ?>
 
-        <script>
-
-//            console.log(scores[0][1]);
-//            console.log(scores[0][2]);
-//            console.log(scores[0][3]);
-//            console.log(scores[0][4]);
-
-        </script>
     </tr>
+
+
+<!--    --><?php
+//    $ResultTable = mysql_query("select * from ")
+//    ?>
+
 
     <tr>
         <?php

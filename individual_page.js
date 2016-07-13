@@ -84,7 +84,15 @@ var circle = g
 circle
     .append("circle")
     .attr("r", 10)
-    .attr("cx", function(d) { return d.x = 480 + d.col * 30; })
+    .attr("cx", function(d) {
+        if(d.score == -1) {
+            return d.x = 480 + d.col * 30;
+        }else {
+            return d.x = title_width + padding_x + d.score * rect_width /10;
+        }
+
+
+    })
     .attr("cy", function(d) { return d.y = padding_y * (d.row + 1); })
     .attr("fill", function(d) {return color[d.col - 1];});
 
@@ -92,7 +100,15 @@ circle
 
 circle
     .append("text")
-    .attr("x", function(d){return d.x - 8;})
+    .attr("x", function(d){
+
+        if(d.score == -1){
+            return d.x = 480 + d.col * 30;
+        }
+        else{
+            return d.x = title_width + padding_x + d.score * rect_width / 10;
+        }
+    })
     .attr("y", function(d){return d.y - 10;})
     .text('');
 
@@ -119,7 +135,7 @@ function dragMove(d) {
 }
 
 function dragEnd(d) {
-    console.log(d);
+    // console.log(d);
     d3.select(this)
         .select('circle')
         .attr('opacity', 1);
@@ -127,13 +143,12 @@ function dragEnd(d) {
         .select("text")
         .text('');
 
+    console.log(d.x );
 
-    var score_num = d3.round((d3.event.x - title_width - padding_x)/30);
+    var score_num = d3.round((d.x - title_width - padding_x)/30);
 
 
     scores[d.row][d.col] = score_num;
-
-
 
     console.log(scores);
     tableChanged(d.row, d.col, score_num);
@@ -169,3 +184,5 @@ legend.append('text')
     .attr('y', function(d, i) {
         return i * legend_height + 6;})
     .text(function(d) { return d.candid; });
+
+
