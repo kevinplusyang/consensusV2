@@ -134,6 +134,27 @@ function dragMove(d) {
 
 }
 
+// function dragEnd(d) {
+//     // console.log(d);
+//     d3.select(this)
+//         .select('circle')
+//         .attr('opacity', 1);
+//     d3.select(this)
+//         .select("text")
+//         .text('');
+//
+//     console.log(d.x );
+//
+//     var score_num = d3.round((d.x - title_width - padding_x)/30);
+//
+//
+//     scores[d.row][d.col] = score_num;
+//
+//     console.log(scores);
+//     tableChanged(d.row, d.col, score_num);
+// }
+
+
 function dragEnd(d) {
     // console.log(d);
     d3.select(this)
@@ -146,13 +167,17 @@ function dragEnd(d) {
     console.log(d.x );
 
     var score_num = d3.round((d.x - title_width - padding_x)/30);
-
-
     scores[d.row][d.col] = score_num;
+    tableChanged(d.row, d.col, score_num);
 
     console.log(scores);
-    tableChanged(d.row, d.col, score_num);
+
+    var overall = scores[0][d.col];
+    var overall_id = "#a0" + d.col.toString();
+    d3.select(overall_id).select("circle").attr("cx", d.x = title_width + padding_x + d.score * rect_width /10);
+
 }
+
 
 /* legend */
 var candid = [{candid: "Betsy"}, {candid: "Chris"}, {candid: "Ross"}]

@@ -93,8 +93,8 @@ $user_num = $row['user_num'];
 
 
 <!--    --><?php
-//    $ResultTable = mysql_query("select * from ")
-//    ?>
+    //    $ResultTable = mysql_query("select * from ")
+    //    ?>
 
 
     <tr>
@@ -280,7 +280,7 @@ $user_num = $row['user_num'];
             str = str +", col: ";
             str = str +candidate_id_init;
             str = str + ", score: ";
-            str = str + scores[criteria_id_init][candidate_id_init]/10;
+            str = str + scores[criteria_id_init][candidate_id_init];
             str = str + ", conflict: 0, id:\"";
             str = str + criteria_id_init;
             str = str + candidate_id_init;
@@ -310,6 +310,9 @@ $user_num = $row['user_num'];
 
 
 <script>
+    
+    
+    
     function change(x){
 
         var num = document.getElementById(x).value;
@@ -332,6 +335,33 @@ $user_num = $row['user_num'];
 
 
     }
+
+
+    function tableChanged(criteria_id, candidate_id, score){
+
+//        var num = document.getElementById(x).value;
+
+//        var candidate_id = x%10;
+//        x = x - candidate_id;
+//        var criteria_id = x/10;
+
+        var num = score;
+
+        updateTable(criteria_id, candidate_id, num);
+
+        var newData = calculate(candidate_id, criteria_id);
+
+        updateTableOverall(criteria_id, candidate_id, newData);
+
+        document.getElementById("0"+candidate_id+"").innerHTML = newData;
+
+        save();
+
+
+
+    }
+
+
 
     function updateTable(criteria_id, candidate_id, num){
         num = parseFloat(num);
