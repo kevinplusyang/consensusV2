@@ -310,7 +310,7 @@ $user_num = $row['user_num'];
 
 
 <script>
-    
+
     
     
     function change(x){
@@ -339,12 +339,6 @@ $user_num = $row['user_num'];
 
     function tableChanged(criteria_id, candidate_id, score){
 
-//        var num = document.getElementById(x).value;
-
-//        var candidate_id = x%10;
-//        x = x - candidate_id;
-//        var criteria_id = x/10;
-
         var num = score;
 
         updateTable(criteria_id, candidate_id, num);
@@ -353,7 +347,7 @@ $user_num = $row['user_num'];
 
         updateTableOverall(criteria_id, candidate_id, newData);
 
-        document.getElementById("0"+candidate_id+"").innerHTML = newData;
+//        document.getElementById("0"+candidate_id+"").innerHTML = newData;
 
         save();
 
@@ -407,7 +401,7 @@ $user_num = $row['user_num'];
                 alert('Error');
             },
             success: function(data,status){
-//                location.reload(true);
+//               location.reload(true);
             }
         });
     }

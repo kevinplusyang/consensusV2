@@ -70,7 +70,7 @@ var color = new Array("green", "blue", "yellow", "purple", "orange", "brown", "C
 
 var data2 = eval('(' + str + ')');
 
-console.log(data2);
+// console.log(data2);
 
 var circle = g
     .selectAll("circle")
@@ -78,7 +78,7 @@ var circle = g
     .enter()
     .append("g")
     .classed("handler", true)
-    .attr("id", function(d) {console.log(d.id); return "a" + d.id.toString(); })
+    .attr("id", function(d) {return "a" + d.id.toString(); })
     .call(drag);
 
 circle
@@ -164,17 +164,25 @@ function dragEnd(d) {
         .select("text")
         .text('');
 
-    console.log(d.x );
 
     var score_num = d3.round((d.x - title_width - padding_x)/30);
     scores[d.row][d.col] = score_num;
     tableChanged(d.row, d.col, score_num);
 
-    console.log(scores);
 
     var overall = scores[0][d.col];
+    console.log(overall);
     var overall_id = "#a0" + d.col.toString();
-    d3.select(overall_id).select("circle").attr("cx", d.x = title_width + padding_x + d.score * rect_width /10);
+    console.log(overall_id);
+    d3.select(overall_id).select("circle").attr("cx", function(d) { 
+        d.x = title_width + padding_x + overall * rect_width /10;
+        console.log(d.x);
+        return d.x;}
+
+    );
+
+
+//    d3.select(overall_id).select("circle").attr("cx", d.x = title_width + padding_x + d.score * rect_width /10);
 
 }
 
