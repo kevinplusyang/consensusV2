@@ -31,11 +31,11 @@ require_once "dbaccess.php";
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="index2.html">毕业要求达成度评价</a>
+        ConsensUs Login
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">请登录</p>
+        <p class="login-box-msg">Please Login</p>
 
         <form role="form" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
             <div class="form-group has-feedback">
@@ -48,23 +48,25 @@ require_once "dbaccess.php";
             </div>
             <div class="row">
                 <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox"> 记住我
-                        </label>
-                    </div>
+<!--                    <div class="checkbox icheck">-->
+<!--                        <label>-->
+<!--                            <input type="checkbox"> 记住我-->
+<!--                        </label>-->
+<!--                    </div>-->
                 </div>
                 <!-- /.col -->
+                <br>
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
 
 
-        <a href="forget.php">忘记密码</a><br>
-        <a href="sign_up.php" class="text-center">注册为新用户</a>
+<!--        <a href="forget.php">忘记密码</a><br>-->
+        <br>
+        <a href="register.php" class="text-center">Register</a>
 
     </div>
     <!-- /.login-box-body -->
