@@ -19,16 +19,12 @@ Participant Name:
 <?php
 
 echo $_SESSION['username'];
+echo $_SESSION['user_id'];
 
-$result = mysql_query("select * from decision where id = '".$_GET['decision_id']."'");
+$result = mysql_query("select * from participate where real_user_id = '".$_SESSION['user_id']."' ");
 $row = mysql_fetch_array($result);
-
-$criteria_num =$row['criteria_num'];
-$candidate_num = $row['candidate_num'];
-$user_num = $row['user_num'];
-
-$decision_id = $_GET['decision_id'];
-$user_id = $_GET['user_id'];
+$decision_id = $row['decision_id'];
+$user_id = $row['user_id'];
 
 
 ?>

@@ -38,7 +38,7 @@ $user_id = $_GET['user_id'];
 
 
 <br>
-<button onclick="location='decision.php?decision_id=<?php echo $decision_id;?>&user=<?php echo $_SESSION['user_id'];?>'">Enter the Study</button>
+<button onclick="location='decision.php?decision_id=<?php echo $decision_id;?>&user=<?php echo $user_id;?>'">Enter the Study</button>
 
 
 

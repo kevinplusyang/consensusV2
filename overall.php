@@ -2,6 +2,9 @@
 session_start();
 require_once "dbaccess.php";
 ?>
+<a href="javascript:history.go(-1)">Go Back to My Individual Page</a>
+<br>
+<a href="http://goo.gl/forms/2Bk1cmcva4Flvh2j2">Finish This Study</a>
 
 <!DOCTYPE html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -20,8 +23,11 @@ $result_count = mysql_query($sql_count);
 $row_count = mysql_fetch_array( $result_count );
 $user_num = $row_count[0];
 
-echo $user_num;
+//echo $user_num;
 ?>
+
+<br>
+
 
 
 <script>
@@ -92,8 +98,8 @@ echo $user_num;
 </script>
 
 
-<div id="myDiv"><h2>使用 AJAX 修改该文本内容</h2></div>
-<button type="button" onclick="loadXMLDoc()">修改内容</button>
+<!-- <div id="myDiv"><h2>使用 AJAX 修改该文本内容</h2></div>
+<button type="button" onclick="loadXMLDoc()">修改内容</button> -->
 
 
 <script>
@@ -122,7 +128,7 @@ echo $user_num;
 
 
                 var user_num = <?php echo $user_num?>;
-                document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                // document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
 
 
 
@@ -344,11 +350,13 @@ echo $user_num;
 
                     circle
                         .append("circle")
+                        .attr("class", "middle-dot")
                         .attr("cx", function(d){ return d.x;})
                         .attr("cy", function(d){ return d.y;})
                         .attr("r", 2)
                         .attr("fill", "Crimson")
                         .attr("opacity", function(d){return d.conflict;});
+
 
 
                     var voter = score;
@@ -377,11 +385,9 @@ echo $user_num;
                                     .enter()
                                     .append("g")
                                     .classed("voter_dot", true)
-                                    .attr("id", function(d) {return "b" + a.toString() + b.toString() + d.code.toString(); })                                    .attr("x", function(d, i){
-                                        d.x = title_width + padding_x + rect_width / 10 * score_bar[i + 1];
-                                        return d.x;
-
-                                    })
+                                    .attr("id", function(d) {return "b" + a.toString() + b.toString() + d.code.toString(); })                                    
+                                    .attr("x", function(d, i){
+                                        d.x = title_width + padding_x + rect_width / 10 * score_bar[i + 1];})
                                     .attr("y", function(){
                                         d.y = padding_y * (+a + 1);
                                         return d.y;
@@ -392,9 +398,22 @@ echo $user_num;
                         voter_circle
                             .append("circle")
                             .attr("r", 10)
-                            .attr("cx", function(d, i) { return title_width + padding_x + rect_width / 10 * score_bar[i + 1]; })
-                            .attr("cy", function(d, i) { return padding_y * (+a + 1); })
+                            .attr("cx", function(d, i) { 
+                                return d.x = title_width + padding_x + rect_width / 10 * score_bar[i + 1]; })
+                            .attr("cy", function(d, i) { return d.y = padding_y * (+a + 1); })
                             .attr("fill", "grey");
+                                            //ballon
+                        voter_circle
+                            .append("path")
+                            .attr("class", "float_path")
+                            .attr("d", function(d) {
+                                return "M " + d.x.toString() + " " + d.y.toString() + "L " + d.x.toString() + " " + d.y.toString();
+                            })
+                            .attr("stroke", "grey")
+                            .attr("stroke-width", "2")
+                            .attr("opacity", 0.6)
+                            ;
+
 
                         voter_circle
                             .append("text")
@@ -411,7 +430,7 @@ echo $user_num;
                             .attr("x", function(d){ return title_width + padding_x + rect_width + padding_x;})
                             .attr("y", function(d) {return padding_y * (+a + 1)-10;})
                             .attr("height", 20)
-                            .attr("width", 56)
+                            .attr("width", 70)
                             .attr("fill", "grey")
                         ;
 
@@ -419,7 +438,7 @@ echo $user_num;
                             .append("text")
                             .attr("x", function(d){ return title_width + padding_x + rect_width + padding_x + 3;})
                             .attr("y", function(d) {return padding_y * (+a + 1) + 3;})
-                            .text("confirm")
+                            .text("see result")
                             .on("click", recover)
                         ;
 
@@ -439,12 +458,20 @@ echo $user_num;
                         d3.select(this)
                             .select("circle")
                             .attr("opacity", 0.4)
-                            .attr("cx", d.x = Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x)));
+                            .attr("cx", d.x = Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x)))
+                            .attr("cy", d.y - 15)
+                            ;
+                        d3.select(this)
+                            .select(".float_path")
+                            .attr("d", function(d) {
+                                    return "M" + d.x.toString() + " " + (d.y - 15 + r).toString() + "L " + d.x.toString() + " " + d.y.toString();
+                            });
+                        
                         d3.select(this)
                             .select("text")
                             .attr("transform", function(d){
                                 d.x = Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x));
-                                return "translate(" + d.x + "," + d.y + ") rotate(-40)";
+                                return "translate(" + d.x + "," + (d.y - 15) + ") rotate(-40)";
 
 
                             })
@@ -453,98 +480,139 @@ echo $user_num;
                     }
 
                     function dragEnd(d) {
+                        d3.select(this).select("circle").attr("cy", d.y).attr("opacity", 1);
 
-                      
-                        var voter_id = d3.select(this).attr("id");
                         d3.select(this)
-                            .select('circle')
-                            .attr('opacity', 1);
-                        var score_num = d3.round((d.x - title_width - padding_x) /rect_width * 10);
+                            .select("text")
+                            .attr("transform", function(d){
+                                return "translate(" + d.x + "," + d.y + ") rotate(-40)";
+
+
+                            });
+
+                        var voter_id = d3.select(this).attr("id");
+                        var score_num = d3.round((d.x - title_width - padding_x) /rect_width * 10, 10);                        
 
                         score[voter_id[1]][voter_id[2]][voter_id[3]] = score_num;
-//                        d.conflict = conflict[voter_id[1]][voter_id[2]];
-//                        console.log(d.conflict);
-
                         calculateAvg();
-//                        d.conflict = conflict[voter_id[1]][voter_id[2]];
-//                        console.log(d.conflict);
                         calculateConflict();
-//                        var candid_id = "#a" + voter_id[1].toString() + voter_id[2].toString();
-//
-//                        d3.select(candid_id).select(".lower-path")
-//                            .attr("d", function(d){
-//                                var x = d.x;
-//                                var y = padding_y * (d.row + 1) + d.conflict/2 * path_max_length;
-//                                return "M " + (x - r/2).toString() + " " + y.toString() +
-//                                    "L " + (x + r/2).toString() + " " + y.toString();
-//                            });
-//
-//                        d3.select(candid_id).select(".upper-path")
-//                            .attr("d", function(d){
-//
-//                                var x = d.x;
-//                                var y = padding_y * (d.row + 1) - d.conflict/2 * path_max_length;
-//                                return "M " + (x - r/2).toString() + " " + y.toString() +
-//                                    "L " + (x + r/2).toString() + " " + y.toString();
-//                            });
-//
-//
-//                        d3.select(candid_id).select(".middle-path")
-//                            .attr("d", function(d){
-//                                var x = d.x;
-//                                var y = padding_y * (d.row + 1);
-//                                return "M " + x.toString() + " " + (y - d.conflict/2 * path_max_length).toString() +
-//                                    "L " + x.toString() + " " + (y + d.conflict/2 * path_max_length).toString();
-//                            });
+
+                        var conflict_level = conflict[voter_id[1]][voter_id[2]];
+                        var overall_score = overall[voter_id[1]][voter_id[2]];
+                        var x = title_width + padding_x + overall_score * rect_width / 10;
+                                                                                     
+
+                        var candid_id = "#a" + voter_id[1].toString() + voter_id[2].toString();
+
+
+                        d3.select(candid_id).select(".lower-path")
+                            .attr("d", function(d){
+                                var y = padding_y * (d.row + 1) + conflict_level/2 * path_max_length;
+                                return "M " + (x - r/2).toString() + " " + y.toString() +
+                                    "L " + (x + r/2).toString() + " " + y.toString();
+                            })
+                            .attr("opacity", function(d) { return conflict_level;});
+
+                       d3.select(this)
+                            .select(".float_path")
+                            .attr("d", function(d){
+                                return "M" + d.x.toString() + " " + d.y.toString() + "L " + d.x.toString() + " " + d.y.toString(); 
+                            }); 
+
+                       d3.select(candid_id).select(".upper-path")
+                           .attr("d", function(d){
+                               var y = padding_y * (d.row + 1) - conflict_level/2 * path_max_length;
+                               return "M " + (x - r/2).toString() + " " + y.toString() +
+                                   "L " + (x + r/2).toString() + " " + y.toString();
+                           })
+                           .attr("opacity", function(d){ return conflict_level;});
+
+                       d3.select(candid_id).select(".middle-path")
+                           .attr("d", function(d){
+                               var y = padding_y * (d.row + 1);
+                               return "M " + x.toString() + " " + (y - conflict_level/2 * path_max_length).toString() +
+                                   "L " + x.toString() + " " + (y + conflict_level/2 * path_max_length).toString();
+                           })
+                           .attr("opacity", function(d) { return conflict_level;});
+
+                       d3.select(candid_id).select(".middle-dot")
+                       .attr("cx", x)
+                       .attr("opacity", conflict_level); 
                         save();
                        
                     }
 
-                    /* legend */
-                    var candid = [{candid: "Betsy"}, {candid: "Chris"}, {candid: "Ross"}]
-                    var legend_height = 10;
-                    var legend = d3.select('body')
-                        .append("svg")
-                        .style("position", "absolute")
-                        .style("top", "80px")
-                        .style("left", "700px")
-                        .append("g")
-                        .selectAll("g")
-                        .data(candid)
-                        .enter()
-                        .append('g')
-                        .attr('class', 'legend')
-                        .attr("x", 8)
-                        .attr("y", function(d, i) {return i * legend_height + 8;})
 
-                    legend.append('circle')
-                        .attr('cx', 0)
-                        .attr('cy', function(d, i) {
-                            return i * legend_height;
-                        })
-                        .attr("r", 5)
-                        .style('fill', function(d, i) { return color[i];})
-                        .style('stroke', function(d, i) {return color[i];});
+/* legend */
+var candid = [{candid: "Betsy"}, {candid: "Chris"}, {candid: "Ross"}]
+var legend_height = 15;
+var legend_padding = 10;
+var legend = d3.select('body')
+        .append("svg")
+        .style("position", "absolute")
+        .style("top", "80px")
+        .style("left", "700px")
+        .append("g")
+        .selectAll("g")
+        .data(candid)
+        .enter()
+        .append('g')
+        .attr('class', 'legend')
+              .attr("x", 0)
+        .attr("y", function(d, i) {return i * legend_height + 0;})
+        .attr("transform", "translate(" + legend_padding + "," + legend_padding + ")");
 
-                    legend.append('text')
-                        .attr('x', 8)
-                        .attr('y', function(d, i) {
-                            return i * legend_height + 6;})
-                        .text(function(d) { return d.candid; });
+legend.append('circle')
+        .attr('cx', 10)
+        .attr('cy', function(d, i) {
+            return i * legend_height;
+        })
+        .attr("r", 5)
+        .style('fill', function(d, i) { return color[i];})
+        .style('stroke', function(d, i) {return color[i];});
 
-                    /* checkbox */
-                    var check_box = d3.
-                        select("body")
-                        .selectAll("div")
-                        .data(d3.range(0, candid_num))
-                        .enter()
-                        .append("div")
-                        .style("position", "absolute")
-                        .style("left", width + 50 + "px")
-                        .style("top", function(d, i) { return (73 + legend_height * i).toString() + "px";})
-                        .append('input')
-                        .attr('type','checkbox');
+legend.append('text')
+        .attr('x', 25)
+        .attr('y', function(d, i) {
+    return i * legend_height + 5;})
+        .text(function(d) { return d.candid; });
 
+/* checkbox */
+var check_box = d3.
+                select("body")
+                .selectAll("div")
+                .data(d3.range(0, candid_num))
+                .enter()
+                .append("div")
+                .style("position", "absolute")
+                .style("left", width + 80 + "px")
+                .style("top", function(d, i) { return (80 + legend_height * i).toString() + "px";})
+                .append('input')
+                .attr('type','checkbox')
+                .property("checked", true)
+                .attr("id", function(d, i) { return "c" + (i + 1).toString()})
+                ;
+
+
+check_box.on("click", function(d){
+
+    var id = new Array(0, 0, 0, 0);
+    var candid = d3.select(this).node();
+    for(var i = 0; i < 4; i++)
+    {
+        id[i] = "#a" + i + candid.id[1];
+        if(this.checked == true) {
+            d3.select(id[i]).classed("hidden", false);
+        }
+        else {
+            d3.select(id[i]).classed("hidden", true);
+        }
+
+                }
+
+
+
+});
 
 
 
@@ -566,7 +634,6 @@ echo $user_num;
 //                                console.log(conflict);
                                 calculateAvg();
                                 calculateConflict();
-                                console.log(conflict);
                                 oneChanged(m, n, q);
 
                             }
@@ -587,8 +654,12 @@ echo $user_num;
 
                     var title_width = 150;
                     var rect_width=400;
+                    var r = 10;
+
 
                     var padding_x = 10, padding_y = 70;
+                    var path_max_length = 75;
+
 
                     var id1 = "#a" + criteria_id.toString() + candidate_id.toString();
                     var score1 = overall[criteria_id][candidate_id];
@@ -618,6 +689,47 @@ echo $user_num;
                             d.y = padding_y * (criteria_id + 1);
                             return "translate(" + d.x + "," + d.y + ") rotate(-40)";
                         })
+                
+//              change  conflict
+                        
+
+                        var conflict_level = conflict[criteria_id][candidate_id];
+                        var overall_score = overall[criteria_id][candidate_id];
+                        var x = title_width + padding_x + overall_score * rect_width / 10;
+                                                                                     
+
+                        var candid_id = "#a" + criteria_id.toString() + candidate_id.toString();
+
+
+                        d3.select(candid_id).select(".lower-path")
+                            .attr("d", function(d){
+                                var y = padding_y * (d.row + 1) + conflict_level/2 * path_max_length;
+                                return "M " + (x - r/2).toString() + " " + y.toString() +
+                                    "L " + (x + r/2).toString() + " " + y.toString();
+                            })
+                            .attr("opacity", function(d) { return conflict_level;});
+
+                       d3.select(candid_id).select(".upper-path")
+                           .attr("d", function(d){
+                               var y = padding_y * (d.row + 1) - conflict_level/2 * path_max_length;
+                               return "M " + (x - r/2).toString() + " " + y.toString() +
+                                   "L " + (x + r/2).toString() + " " + y.toString();
+                           })
+                           .attr("opacity", function(d){ return conflict_level;});
+
+                       d3.select(candid_id).select(".middle-path")
+                           .attr("d", function(d){
+                               var y = padding_y * (d.row + 1);
+                               return "M " + x.toString() + " " + (y - conflict_level/2 * path_max_length).toString() +
+                                   "L " + x.toString() + " " + (y + conflict_level/2 * path_max_length).toString();
+                           })
+                           .attr("opacity", function(d) { return conflict_level;});
+
+                       d3.select(candid_id).select(".middle-dot")
+                       .attr("cx", x)
+                       .attr("opacity", conflict_level); 
+
+
                 }
 
 
@@ -683,7 +795,7 @@ echo $user_num;
 
 
 
-    function calculateConflict(){
+ function calculateConflict(){
         var criteria_id = 0;
         var candidate_id = 0;
         var user_id = 0;
@@ -745,11 +857,7 @@ echo $user_num;
             }
         }
 
-        console.log("max");
-        console.log(max);
-
-        console.log(conflict);
-
+      
 
 
 

@@ -101,7 +101,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         echo isset($_SESSION['user_id']);
         echo isset($_SESSION['email']);
 
-        $index = "decisions.php";
+        $index = "consent.php";
         echo '<script language="javascript">';
         echo "window.location.href='$index';";
         echo '</script>';

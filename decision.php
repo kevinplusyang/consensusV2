@@ -68,27 +68,27 @@ $user_num = $row['user_num'];
 
 
 
-<div>
-    Users in this dcision:
-    <?php
-    $result = mysql_query("select * from participate where decision_id = '".$_GET['decision_id']."'");
-    while($row = mysql_fetch_array($result)){
-        $user_id = $row['user_id'];
-
-        $username_result = mysql_query("select * from user where id = '".$user_id."' ");
-        $username_row = mysql_fetch_array($username_result);
-        $username = $username_row['user_name'];
-
-        ?>
-
-        <a href="decision.php?decision_id=<?php echo $_GET['decision_id'];?>&user=<?php echo $user_id;?>"><?php echo $username;?></a>
-
-        <?php
-
-    }
-    ?>
-
-</div>
+<!--<div>-->
+<!--    Users in this dcision:-->
+<!--    --><?php
+//    $result = mysql_query("select * from participate where decision_id = '".$_GET['decision_id']."'");
+//    while($row = mysql_fetch_array($result)){
+//        $user_id = $row['user_id'];
+//
+//        $username_result = mysql_query("select * from user where id = '".$user_id."' ");
+//        $username_row = mysql_fetch_array($username_result);
+//        $username = $username_row['user_name'];
+//
+//        ?>
+<!---->
+<!--        <a href="decision.php?decision_id=--><?php //echo $_GET['decision_id'];?><!--&user=--><?php //echo $user_id;?><!--">--><?php //echo $username;?><!--</a>-->
+<!---->
+<!--        --><?php
+//
+//    }
+//    ?>
+<!---->
+<!--</div>-->
 
 <div>
     <a href="overall.php?decision_id=<?php echo $_GET['decision_id']?>">Overall Page</a>
@@ -211,7 +211,7 @@ $user_num = $row['user_num'];
                             str = str +", col: ";
                             str = str +candidate_id_init;
                             str = str + ", score: ";
-                            str = str + parseInt(scores[criteria_id_init][candidate_id_init]);
+                            str = str + parseFloat(scores[criteria_id_init][candidate_id_init]);
                             str = str + ", conflict: 0, id:\"";
                             str = str + criteria_id_init;
                             str = str + candidate_id_init;
@@ -237,7 +237,7 @@ $user_num = $row['user_num'];
 
                     var data2 = eval('(' + str + ')');
 
-
+                    var r = 10;
 
                     var circle = g
                         .selectAll("circle")
@@ -250,7 +250,7 @@ $user_num = $row['user_num'];
 
                     circle
                         .append("circle")
-                        .attr("r", 10)
+                        .attr("r", r)
                         .attr("cx", function(d) {
                             if(d.score == -1) {
                                 return d.x = 480 + d.col * 30;
@@ -263,7 +263,16 @@ $user_num = $row['user_num'];
                         .attr("cy", function(d) { return d.y = padding_y * (d.row + 1); })
                         .attr("fill", function(d) {return color[d.col - 1];});
 
-
+circle
+                        .append("path")
+                        .attr("class", "float_path")
+                        .attr("d", function(d) {
+                            return "M " + d.x.toString() + " " + d.y.toString() + "L " + d.x.toString() + " " + d.y.toString();
+                         })
+                        .attr("stroke", "grey")
+                        .attr("stroke-width", "2")
+                        .attr("opacity", 0.6)
+                        ;
 
                     circle
                         .append("text")
@@ -279,25 +288,36 @@ $user_num = $row['user_num'];
                         .attr("y", function(d){return d.y - 10;})
                         .text('');
 
+                    
 
-
-
+                    var float_height = 15;
 
                     function dragMove(d) {
                         d3.select(this)
                             .select("circle")
                             .attr("opacity", 0.4)
                             .attr("cx", d.x = Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x)))
+                            .attr("cy", d.y - float_height);
+
+                        d3.select(this)
+                            .select(".float_path")
+                            .attr("d", function(d) {
+                                return "M" + d.x.toString() + " " + (d.y - 15 + r).toString() + "L " + d.x.toString() + " " + d.y.toString();
+                            });
+                        
                         d3.select(this)
                             .select("text")
                             .text(function(d){
-                                var x = d3.round((d3.event.x - title_width - padding_x)/rect_width * 10);
+                                var x = d3.round((d3.event.x - title_width - padding_x)/rect_width * 10, 10);
+                                console.log(x);
                                 x = Math.min(x, 10);
                                 x = Math.max(0, x);
+                                console.log(x);
                                 return x;
 
                             })
-                            .attr("x", d.x = Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x))-4);
+                            .attr("x", Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x))-4);
+
 
                     }
 
@@ -306,13 +326,22 @@ $user_num = $row['user_num'];
                         // console.log(d);
                         d3.select(this)
                             .select('circle')
-                            .attr('opacity', 1);
+                            .attr('opacity', 1)
+                            .attr("cy", d.y);
+                        d3.select(this)
+                            .select(".float_path")
+                            .attr("d", function(d){
+                                return "M" + d.x.toString() + " " + d.y.toString() + "L " + d.x.toString() + " " + d.y.toString(); 
+                            });
+
                         d3.select(this)
                             .select("text")
                             .text('');
 
 
-                        var score_num = d3.round((d.x - title_width - padding_x)/rect_width * 10);
+                        var score_num = d3.round((d.x - title_width - padding_x)/rect_width * 10, 10);
+                        console.log("score_num");
+                        console.log(score_num);
                         scores[d.row][d.col] = score_num;
 
 
@@ -417,7 +446,7 @@ $user_num = $row['user_num'];
 
 
         },
-            xmlhttp.open("GET","fetch_individual_data.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_SESSION['user_id']?>",true);
+            xmlhttp.open("GET","fetch_individual_data.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user']?>",true);
             xmlhttp.send();
 
 
@@ -474,7 +503,7 @@ $user_num = $row['user_num'];
         for(i = 1; i <=3; i++){
             temp = 0;
             for(j = 1; j <=3; j++){
-                temp = temp + parseInt(scores[j][i]);
+                temp = temp + parseFloat(scores[j][i]);
 
             }
             scores[0][i] = temp/3;

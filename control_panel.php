@@ -17,83 +17,97 @@ User ID:
 User Name:
 <?php echo $_SESSION['username'];?>
 
-<br>
-<br>
-======================================================
-<br>
-<b>One click to create a pilot study:</b>
-<form action="add_decision.php" method="post">
-    Pilot Name:
-    <input type="text" name="decision_name" id="decision_name">
-    <br>
-    Pilot Description:
-    <input type="text" name="description" id="description">
-    <br>
-    <button type="submit">Start Piloting</button>
-</form>
 
 <br>
 
-<div>
-    <form action="join_decision.php" method="post">
-        Participate to a study:
-        <input type="text" name="invitation_code" id="invitation_code" placeholder="Pilot Study Code">
-        <br>
-        <button type="submit">OK</button>
-    </form>
-</div>
-======================================================
+<hr>
 
-
-
-<br>
-
-
-<br>
-<br>
-======================================================<br>
-<b>Create a decision:</b>
-<form action="add_decision_general.php" method="post">
-    Decision Name:
-    <input type="text" name="decision_name" id="decision_name">
-    <br>
-    Decision Description:
-    <input type="text" name="description" id="description">
-    <br>
-    <button type="submit">Start a New Decision</button>
-</form>
-
-
-
-<div>
-    <?php
-    $result = mysql_query("select * from participate where user_id = '".$_SESSION['user_id']."'");
-    while($row = mysql_fetch_array($result)) {
-        $decision_id = $row['decision_id'];
-
-        $result_decision = mysql_query("select * from decision where id = $decision_id");
-        $row_decision = mysql_fetch_array($result_decision);
-        $decision_name = $row_decision['name'];
-        $decision_description = $row_decision['description'];
-
-        ?>
-        <a href="decision.php?decision_id=<?php echo $decision_id;?>&user=<?php echo $_SESSION['user_id'];?>"><?php echo $decision_name?></a>
-        <?php
-    }
+<?php
+$result = mysql_query("select * from decision;");
+while($row = mysql_fetch_array($result)) {
+    $decision_id = $row['id'];
     ?>
-</div>
 
+    ======================================================
+    <br>
+    Pilot Study ID: <?php echo  $decision_id?>
+
+    <br>
+    <?php
+    $result_2 = mysql_query("select * from participate where decision_id = '".$decision_id."'");
+    while($row_2 = mysql_fetch_array($result_2)) {
+        $user_id = $row_2['user_id'];
+        $real_user_id = $row_2['real_user_id'];
+       ?>
+        User ID: <?php echo $real_user_id;?>
 <br>
+        <?php
 
-<div>
-    <form action="join_decision_general.php" method="post">
-        Participate to a decision:
-        <input type="text" name="invitation_code" id="invitation_code" placeholder="Invitation Code">
-        <br>
-        <button type="submit">OK</button>
-    </form>
-</div>
-======================================================
+    }
+
+}
+
+?>
+
+<hr>
+Create a New Study:
+
+<form action="create_study.php" method="post">
+
+   <input type="text" placeholder="Study Name" name="studyname">
+    <br>
+
+    <input type="text" placeholder="Description" name="description">
+    <br>
+
+
+    <button type="submit">Creat Pilot Study</button>
+</form>
+
+
+<hr>
+Add a New User:
+<form action="register_user.php" method="post">
+
+        <input class="form-control" placeholder="User Name" name="username" id="username" autofocus>
+
+    <br>
+
+        <input class="form-control" placeholder="E-mail" name="email" id="email" autofocus>
+
+
+    <br>
+        <input class="form-control" placeholder="Password" name="password" type="password" value="">
+
+    <br>
+    Select a Study:
+    <select name="participate">
+        <?php
+        $result = mysql_query("select * from decision");
+        while ($row = mysql_fetch_array($result)){
+            $decision_name = $row['name'];
+            $decision_id = $row['id'];
+            ?>
+            <option value="<?php echo $decision_id;?>">
+                <?php
+                echo $decision_name;
+                ?>
+            </option>
+            <?php
+        }
+        ?>
+    </select>
+    <br>
+
+    <button type="submit">Register</button>
+</form>
+
+
+
+
+
+
+
 
 </body>
 </html>

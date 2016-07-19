@@ -30,7 +30,7 @@ $data = json_decode(stripslashes($_POST['trans_data']));
 
 
 //mysql_query("insert into score values('','2','7','1','1','77')");
-//mysql_query("insert into debug values('','".$data[1][3]."')");
+mysql_query("insert into debug values('','".$_GET['user_id']."')");
 
 
 for($i = 0; $i<=3; $i++){
