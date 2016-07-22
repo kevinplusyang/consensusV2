@@ -30,7 +30,7 @@ while($row = mysql_fetch_array($result)) {
 
     ======================================================
     <br>
-    Pilot Study ID: <?php echo  $decision_id?>
+    Pilot Study ID: <a href="overall.php?decision_id=<?php echo $decision_id;?>"><?php echo  $decision_id?></a>
 
     <br>
     <?php
@@ -38,8 +38,13 @@ while($row = mysql_fetch_array($result)) {
     while($row_2 = mysql_fetch_array($result_2)) {
         $user_id = $row_2['user_id'];
         $real_user_id = $row_2['real_user_id'];
+
+        $result_3 = mysql_query("select * from user where id = '".$real_user_id."'");
+        $row_3 = mysql_fetch_array($result_3);
+        $user_name = $row_3['user_name'];
+
        ?>
-        User ID: <?php echo $real_user_id;?>
+        User: <a href="decision.php?decision_id=<?php echo $decision_id;?>&user=<?php echo $user_id;?>"><?php echo $user_name;?></a>
 <br>
         <?php
 

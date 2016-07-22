@@ -18,6 +18,16 @@ require_once "dbaccess.php";
 <body>
 
 <?php
+
+$result = mysql_query("select * from decision where id = '".$_GET['decision_id']."'");
+$row = mysql_fetch_array($result);
+
+$criteria_num =$row['criteria_num'];
+$candidate_num = $row['candidate_num'];
+$user_num = $row['user_num'];
+
+
+
 $sql_count = "select count(*) from participate where decision_id = '".$_GET['decision_id']."' ";
 $result_count = mysql_query($sql_count);
 $row_count = mysql_fetch_array( $result_count );
@@ -31,12 +41,21 @@ $user_num = $row_count[0];
 
 
 <script>
+
+
+
+
+    var criteria_num = parseInt(<?php echo $criteria_num;?>);
+    var candidate_num = parseInt(<?php echo $candidate_num;?>);
+    var user_num = parseInt(<?php echo $user_num;?>);
+
+
     overall = new Array();
-    for(var k=0;k<4;k++){    //一维长度为i,i为变量，可以根据实际情况改变
+    for(var k=0;k<criteria_num+1;k++){    //一维长度为i,i为变量，可以根据实际情况改变
 
         overall[k]=new Array();  //声明二维，每一个一维数组里面的一个元素都是一个数组；
 
-        for(var j=0;j<5;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
+        for(var j=0;j<candidate_num+2;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
 
             overall[k][j]=0;    //这里将变量初始化，我这边统一初始化为空，后面在用所需的值覆盖里面的值
         }
@@ -46,11 +65,11 @@ $user_num = $row_count[0];
 
 <script>
     conflict = new Array();
-    for(var k=0;k<4;k++){    //一维长度为i,i为变量，可以根据实际情况改变
+    for(var k=0;k<criteria_num+1;k++){    //一维长度为i,i为变量，可以根据实际情况改变
 
         conflict[k]=new Array();  //声明二维，每一个一维数组里面的一个元素都是一个数组；
 
-        for(var j=0;j<5;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
+        for(var j=0;j<candidate_num+2;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
 
             conflict[k][j]=0;    //这里将变量初始化，我这边统一初始化为空，后面在用所需的值覆盖里面的值
         }
@@ -61,14 +80,14 @@ $user_num = $row_count[0];
 
 <script>
     score = new Array();
-    for(var k=0;k<4;k++){    //一维长度为i,i为变量，可以根据实际情况改变
+    for(var k=0;k<criteria_num+1;k++){    //一维长度为i,i为变量，可以根据实际情况改变
 
         score[k]=new Array();  //声明二维，每一个一维数组里面的一个元素都是一个数组；
 
-        for(var j=0;j<5;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
+        for(var j=0;j<candidate_num+2;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
             score[k][j]=new Array();
 
-            for(var p = 0; p<3; p++){
+            for(var p = 0; p<user_num; p++){
                 score[k][j][p]=0;    //这里将变量初始化，我这边统一初始化为空，后面在用所需的值覆盖里面的值
             }
 
@@ -80,14 +99,14 @@ $user_num = $row_count[0];
 
 <script>
     score2 = new Array();
-    for(var k=0;k<4;k++){    //一维长度为i,i为变量，可以根据实际情况改变
+    for(var k=0;k<criteria_num+1;k++){    //一维长度为i,i为变量，可以根据实际情况改变
 
         score2[k]=new Array();  //声明二维，每一个一维数组里面的一个元素都是一个数组；
 
-        for(var j=0;j<5;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
+        for(var j=0;j<candidate_num+2;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
             score2[k][j]=new Array();
 
-            for(var p = 0; p<3; p++){
+            for(var p = 0; p<user_num; p++){
                 score2[k][j][p]=0;    //这里将变量初始化，我这边统一初始化为空，后面在用所需的值覆盖里面的值
             }
 
@@ -96,6 +115,32 @@ $user_num = $row_count[0];
     }
 
 </script>
+
+<?php
+
+$result = mysql_query("select * from participate where decision_id = '".$_GET['decision_id']."'; ");
+
+$str = "[";
+
+while ($row = mysql_fetch_array($result)){
+    $user_id = $row['user_id'];
+    $real_user_id = $row['real_user_id'];
+    $result_2 = mysql_query("select * from user where id = '".$real_user_id."' ");
+    $row_2 = mysql_fetch_array($result_2);
+    $user_name = $row_2['user_name'];
+
+    $str = $str."{code:".$user_id.", name:\"".$user_name."\"}";
+    if($user_id != $user_num){
+        $str = $str.",";
+    }
+
+}
+
+$str = $str."]";
+
+//echo $str;
+
+?>
 
 
 <!-- <div id="myDiv"><h2>使用 AJAX 修改该文本内容</h2></div>
@@ -166,9 +211,9 @@ $user_num = $row_count[0];
                     str = "[";
 
 
-                    for(criteria_id_init = 0; criteria_id_init <= 3; criteria_id_init++){
+                    for(criteria_id_init = 0; criteria_id_init <= <?php echo $criteria_num;?>; criteria_id_init++){
 
-                        for(candidate_id_init = 1; candidate_id_init <=3; candidate_id_init++){
+                        for(candidate_id_init = 1; candidate_id_init <=<?php echo $candidate_num;?>; candidate_id_init++){
                             str = str + "{row: ";
                             str = str + criteria_id_init;
                             str = str +", col: ";
@@ -182,7 +227,7 @@ $user_num = $row_count[0];
                             str = str + candidate_id_init;
                             str = str + "\""
 
-                            if(criteria_id_init ==3 && candidate_id_init ==3){
+                            if(criteria_id_init ==<?php echo $criteria_num;?> && candidate_id_init ==<?php echo $candidate_num;?>){
                                 str = str + "}"
 
                             }else {
@@ -203,15 +248,14 @@ $user_num = $row_count[0];
 
 
 
-
-
                 if(count == 1){
 
 
-                    for(var m = 0; m <4; m++ ){
-                        for(var n = 0; n <4; n++){
-                            for (var q = 1; q <= 3 ; q++){
+                    for(var m = 0; m <<?php echo $criteria_num + 1;?>; m++ ){
+                        for(var n = 0; n <<?php echo $candidate_num;?>; n++){
+                            for (var q = 1; q <= <?php echo $user_num;?> ; q++){
                                 score2[m][n][q] = score[m][n][q];
+
                             }
                         }
                     }
@@ -270,12 +314,11 @@ $user_num = $row_count[0];
                         .attr("fill", "#C0C0C0")
                     ;
 
-                    var color = new Array("green", "blue", "yellow", "purple", "orange", "brown", "Chartreuse", "Cyan");
-                    var criteria_num = 4, candid_num = 3, voter_num = 3;
+                    var color = new Array("green", "blue", "orange", "BlueViolet", "brown", "Chartreuse", "Cyan");
+                    var criteria_num = <?php echo $criteria_num+1?>, candid_num = <?php echo $candidate_num?>, voter_num = <?php echo $user_num;?>;
 
 
                     var data2 = eval('(' + str + ')');
-
 
 
                     var r = 10;
@@ -361,7 +404,8 @@ $user_num = $row_count[0];
 
                     var voter = score;
 
-                    var voter_info = [{code: 1, name: "Ming"}, {code: 2, name: "Jake"}, {code: 3, name: "Steven"}];
+
+                    var voter_info = <?php echo $str;?>;
 
                     circle.on("click", function(d){
                         if (d3.event.defaultPrevented) return;
@@ -385,24 +429,48 @@ $user_num = $row_count[0];
                                     .enter()
                                     .append("g")
                                     .classed("voter_dot", true)
-                                    .attr("id", function(d) {return "b" + a.toString() + b.toString() + d.code.toString(); })                                    
+                                    .attr("id", function(d) {return "b" + a.toString() + b.toString() + d.code.toString(); })
                                     .attr("x", function(d, i){
-                                        d.x = title_width + padding_x + rect_width / 10 * score_bar[i + 1];})
+                                        d.x = title_width + padding_x + rect_width / 10 * score_bar[i + 1];
+                                        return d.x;
+                                    })
                                     .attr("y", function(){
                                         d.y = padding_y * (+a + 1);
                                         return d.y;
                                     })
-                                    .call(drag)
                             ;
+
+//enable drag
+                        var voter_who = <?php echo $_SESSION['user_id'];?>;
+                        var str = "#b" + a.toString() + b.toString() + voter_who.toString();
+                        if(str[2] != 0){
+                            d3.select(str).call(drag);
+                        }
+
+
 
                         voter_circle
                             .append("circle")
                             .attr("r", 10)
-                            .attr("cx", function(d, i) { 
+                            .attr("cx", function(d, i) {
                                 return d.x = title_width + padding_x + rect_width / 10 * score_bar[i + 1]; })
                             .attr("cy", function(d, i) { return d.y = padding_y * (+a + 1); })
                             .attr("fill", "grey");
-                                            //ballon
+
+                        console.log(str[2]);
+                        if(str[2] != 0){
+                            d3.select(str).select("circle").attr("fill", "red");
+
+                            voter_circle
+                                .append("circle")
+                                .attr("r", 3)
+                                .attr("cx", function(d, i) {
+                                    return d3.select(str).select("circle").attr("cx"); })
+                                .attr("cy", function(d, i) {
+                                    return d3.select(str).select("circle").attr("cy"); })
+                                .attr("fill", "red");
+                        }
+//ballon
                         voter_circle
                             .append("path")
                             .attr("class", "float_path")
@@ -412,17 +480,30 @@ $user_num = $row_count[0];
                             .attr("stroke", "grey")
                             .attr("stroke-width", "2")
                             .attr("opacity", 0.6)
-                            ;
-
+                        ;
+//text: voter_name
 
                         voter_circle
                             .append("text")
+                            .attr("class", "voter_name")
                             .text(function(d) {return d.name;})
+                            .style("text-anchor", "end")
                             .attr("transform", function(d, i){
                                 d.x = title_width + padding_x + rect_width / 10 * score_bar[i + 1];
                                 d.y = padding_y * (+a + 1);
-                                return "translate(" + d.x + "," + d.y + ") rotate(-40)";
+                                return "translate(" + d.x + "," + (d.y + r + 4) + ") rotate(-40)";
                             })
+                        ;
+//text: voter_score
+                        voter_circle
+                            .append("text")
+                            .attr("class", "voter_score")
+                            .text("")
+                            .attr("x", function(d) { return d.x;})
+                            .attr("y", function(d) { return d.y - 10;})
+                            .style("text-anchor", "middle")
+                            .style("font-size", "14px")
+                            .text('')
                         ;
 //button
                         voter_circle
@@ -450,8 +531,31 @@ $user_num = $row_count[0];
                         d3.selectAll(".voter_dot").remove();
                     }
 
-                    function dragStart(){
+                    var float_height = 15;
+
+                    function dragStart(d){
                         d3.event.sourceEvent.preventDefault();
+                        d3.select(this)
+                            .select("circle")
+                            .attr("opacity", 0.2)
+                            .attr("cy", d.y - float_height);
+
+                        d3.select(this)
+                            .select(".float_path")
+                            .attr("d", function(d) {
+                                return "M" + d.x.toString() + " " + (d.y - 15 + r).toString() + "L " + d.x.toString() + " " + d.y.toString();
+                            });
+
+                        d3.select(this)
+                            .select(".voter_score")
+                            .text(function(d){
+                                var x = d3.round((d.x - title_width - padding_x)/rect_width * 10, 1);
+                                x = Math.min(x, 10);
+                                x = Math.max(0, x);
+                                return x;
+
+                            });
+
                     }
 
                     function dragMove(d) {
@@ -460,22 +564,31 @@ $user_num = $row_count[0];
                             .attr("opacity", 0.4)
                             .attr("cx", d.x = Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x)))
                             .attr("cy", d.y - 15)
-                            ;
+                        ;
                         d3.select(this)
                             .select(".float_path")
                             .attr("d", function(d) {
-                                    return "M" + d.x.toString() + " " + (d.y - 15 + r).toString() + "L " + d.x.toString() + " " + d.y.toString();
+                                return "M" + d.x.toString() + " " + (d.y - 15 + r).toString() + "L " + d.x.toString() + " " + d.y.toString();
                             });
-                        
+
                         d3.select(this)
-                            .select("text")
+                            .select(".voter_name")
                             .attr("transform", function(d){
                                 d.x = Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x));
-                                return "translate(" + d.x + "," + (d.y - 15) + ") rotate(-40)";
-
-
+                                return "translate(" + d.x + "," + (d.y + r + 4) + ") rotate(-40)";
                             })
                             .text(function(d) {return d.name;});
+
+                        d3.select(this)
+                            .select(".voter_score")
+                            .text(function(d){
+                                var x = d3.round((d3.event.x - title_width - padding_x)/rect_width * 10, 1);
+                                x = Math.min(x, 10);
+                                x = Math.max(0, x);
+                                return x;
+
+                            })
+                            .attr("x", Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x)) );
 
                     }
 
@@ -483,15 +596,23 @@ $user_num = $row_count[0];
                         d3.select(this).select("circle").attr("cy", d.y).attr("opacity", 1);
 
                         d3.select(this)
-                            .select("text")
+                            .select(".voter_name")
                             .attr("transform", function(d){
-                                return "translate(" + d.x + "," + d.y + ") rotate(-40)";
+                                return "translate(" + d.x + "," + (d.y + r + 4) + ") rotate(-40)";
 
+                            });
+                        d3.select(this)
+                            .select(".voter_score")
+                            .text("");
 
+                        d3.select(this)
+                            .select(".float_path")
+                            .attr("d", function(d){
+                                return "M" + d.x.toString() + " " + d.y.toString() + "L " + d.x.toString() + " " + d.y.toString();
                             });
 
                         var voter_id = d3.select(this).attr("id");
-                        var score_num = d3.round((d.x - title_width - padding_x) /rect_width * 10, 10);                        
+                        var score_num = d3.round((d.x - title_width - padding_x) /rect_width * 10, 10);
 
                         score[voter_id[1]][voter_id[2]][voter_id[3]] = score_num;
                         calculateAvg();
@@ -500,7 +621,7 @@ $user_num = $row_count[0];
                         var conflict_level = conflict[voter_id[1]][voter_id[2]];
                         var overall_score = overall[voter_id[1]][voter_id[2]];
                         var x = title_width + padding_x + overall_score * rect_width / 10;
-                                                                                     
+
 
                         var candid_id = "#a" + voter_id[1].toString() + voter_id[2].toString();
 
@@ -513,125 +634,126 @@ $user_num = $row_count[0];
                             })
                             .attr("opacity", function(d) { return conflict_level;});
 
-                       d3.select(this)
+                        d3.select(this)
                             .select(".float_path")
                             .attr("d", function(d){
-                                return "M" + d.x.toString() + " " + d.y.toString() + "L " + d.x.toString() + " " + d.y.toString(); 
-                            }); 
+                                return "M" + d.x.toString() + " " + d.y.toString() + "L " + d.x.toString() + " " + d.y.toString();
+                            });
 
-                       d3.select(candid_id).select(".upper-path")
-                           .attr("d", function(d){
-                               var y = padding_y * (d.row + 1) - conflict_level/2 * path_max_length;
-                               return "M " + (x - r/2).toString() + " " + y.toString() +
-                                   "L " + (x + r/2).toString() + " " + y.toString();
-                           })
-                           .attr("opacity", function(d){ return conflict_level;});
+                        d3.select(candid_id).select(".upper-path")
+                            .attr("d", function(d){
+                                var y = padding_y * (d.row + 1) - conflict_level/2 * path_max_length;
+                                return "M " + (x - r/2).toString() + " " + y.toString() +
+                                    "L " + (x + r/2).toString() + " " + y.toString();
+                            })
+                            .attr("opacity", function(d){ return conflict_level;});
 
-                       d3.select(candid_id).select(".middle-path")
-                           .attr("d", function(d){
-                               var y = padding_y * (d.row + 1);
-                               return "M " + x.toString() + " " + (y - conflict_level/2 * path_max_length).toString() +
-                                   "L " + x.toString() + " " + (y + conflict_level/2 * path_max_length).toString();
-                           })
-                           .attr("opacity", function(d) { return conflict_level;});
+                        d3.select(candid_id).select(".middle-path")
+                            .attr("d", function(d){
+                                var y = padding_y * (d.row + 1);
+                                return "M " + x.toString() + " " + (y - conflict_level/2 * path_max_length).toString() +
+                                    "L " + x.toString() + " " + (y + conflict_level/2 * path_max_length).toString();
+                            })
+                            .attr("opacity", function(d) { return conflict_level;});
 
-                       d3.select(candid_id).select(".middle-dot")
-                       .attr("cx", x)
-                       .attr("opacity", conflict_level); 
+                        d3.select(candid_id).select(".middle-dot")
+                            .attr("cx", x)
+                            .attr("opacity", conflict_level);
                         save();
-                       
+
                     }
 
 
-/* legend */
-var candid = [{candid: "Betsy"}, {candid: "Chris"}, {candid: "Ross"}]
-var legend_height = 15;
-var legend_padding = 10;
-var legend = d3.select('body')
-        .append("svg")
-        .style("position", "absolute")
-        .style("top", "80px")
-        .style("left", "700px")
-        .append("g")
-        .selectAll("g")
-        .data(candid)
-        .enter()
-        .append('g')
-        .attr('class', 'legend')
-              .attr("x", 0)
-        .attr("y", function(d, i) {return i * legend_height + 0;})
-        .attr("transform", "translate(" + legend_padding + "," + legend_padding + ")");
+                    /* legend */
+                    var candid = [{candid: "Betsy"}, {candid: "Chris"}, {candid: "Ross"}]
+                    var legend_height = 15;
+                    var legend_padding = 10;
+                    var legend = d3.select('body')
+                        .append("svg")
+                        .style("position", "absolute")
+                        .style("top", "80px")
+                        .style("left", "700px")
+                        .append("g")
+                        .selectAll("g")
+                        .data(candid)
+                        .enter()
+                        .append('g')
+                        .attr('class', 'legend')
+                        .attr("x", 0)
+                        .attr("y", function(d, i) {return i * legend_height + 0;})
+                        .attr("transform", "translate(" + legend_padding + "," + legend_padding + ")");
 
-legend.append('circle')
-        .attr('cx', 10)
-        .attr('cy', function(d, i) {
-            return i * legend_height;
-        })
-        .attr("r", 5)
-        .style('fill', function(d, i) { return color[i];})
-        .style('stroke', function(d, i) {return color[i];});
+                    legend.append('circle')
+                        .attr('cx', 10)
+                        .attr('cy', function(d, i) {
+                            return i * legend_height;
+                        })
+                        .attr("r", 5)
+                        .style('fill', function(d, i) { return color[i];})
+                        .style('stroke', function(d, i) {return color[i];});
 
-legend.append('text')
-        .attr('x', 25)
-        .attr('y', function(d, i) {
-    return i * legend_height + 5;})
-        .text(function(d) { return d.candid; });
+                    legend.append('text')
+                        .attr('x', 25)
+                        .attr('y', function(d, i) {
+                            return i * legend_height + 5;})
+                        .text(function(d) { return d.candid; });
 
-/* checkbox */
-var check_box = d3.
-                select("body")
-                .selectAll("div")
-                .data(d3.range(0, candid_num))
-                .enter()
-                .append("div")
-                .style("position", "absolute")
-                .style("left", width + 80 + "px")
-                .style("top", function(d, i) { return (80 + legend_height * i).toString() + "px";})
-                .append('input')
-                .attr('type','checkbox')
-                .property("checked", true)
-                .attr("id", function(d, i) { return "c" + (i + 1).toString()})
-                ;
+                    /* checkbox */
+                    var check_box = d3.
+                        select("body")
+                        .selectAll("div")
+                        .data(d3.range(0, candid_num))
+                        .enter()
+                        .append("div")
+                        .style("position", "absolute")
+                        .style("left", width + 80 + "px")
+                        .style("top", function(d, i) { return (80 + legend_height * i).toString() + "px";})
+                        .append('input')
+                        .attr('type','checkbox')
+                        .property("checked", true)
+                        .attr("id", function(d, i) { return "c" + (i + 1).toString()})
+                        ;
 
 
-check_box.on("click", function(d){
+                    check_box.on("click", function(d){
 
-    var id = new Array(0, 0, 0, 0);
-    var candid = d3.select(this).node();
-    for(var i = 0; i < 4; i++)
-    {
-        id[i] = "#a" + i + candid.id[1];
-        if(this.checked == true) {
-            d3.select(id[i]).classed("hidden", false);
-        }
-        else {
-            d3.select(id[i]).classed("hidden", true);
-        }
+
+
+                        var id = new Array(0, 0, 0, 0);
+                        var candid = d3.select(this).node();
+                        for(var i = 0; i < 4; i++)
+                        {
+                            id[i] = "#a" + i + candid.id[1];
+                            if(this.checked == true) {
+                                d3.select(id[i]).classed("hidden", false);
+                            }
+                            else {
+                                d3.select(id[i]).classed("hidden", true);
+                            }
+
+                        }
+
+
+
+                    });
+
+
+
 
                 }
 
 
 
-});
 
+                for(var m = 0; m <<?php echo $criteria_num +1;?>; m++ ){
+                    for(var n = 0; n <<?php echo $candidate_num +1;?>; n++){
+                        for (var q = 1; q <= <?php echo $user_num;?>; q++){
 
-
-
-                }
-
-
-
-
-                for(var m = 0; m <4; m++ ){
-                    for(var n = 0; n <4; n++){
-                        for (var q = 1; q <= 3 ; q++){
 
 
                             if(score2[m][n][q] == score[m][n][q]){
 
                             }else {
-                                console.log("&&&&&&&&&&&&&&&&&");
-//                                console.log(conflict);
                                 calculateAvg();
                                 calculateConflict();
                                 oneChanged(m, n, q);
@@ -689,45 +811,45 @@ check_box.on("click", function(d){
                             d.y = padding_y * (criteria_id + 1);
                             return "translate(" + d.x + "," + d.y + ") rotate(-40)";
                         })
-                
+
 //              change  conflict
-                        
-
-                        var conflict_level = conflict[criteria_id][candidate_id];
-                        var overall_score = overall[criteria_id][candidate_id];
-                        var x = title_width + padding_x + overall_score * rect_width / 10;
-                                                                                     
-
-                        var candid_id = "#a" + criteria_id.toString() + candidate_id.toString();
 
 
-                        d3.select(candid_id).select(".lower-path")
-                            .attr("d", function(d){
-                                var y = padding_y * (d.row + 1) + conflict_level/2 * path_max_length;
-                                return "M " + (x - r/2).toString() + " " + y.toString() +
-                                    "L " + (x + r/2).toString() + " " + y.toString();
-                            })
-                            .attr("opacity", function(d) { return conflict_level;});
+                    var conflict_level = conflict[criteria_id][candidate_id];
+                    var overall_score = overall[criteria_id][candidate_id];
+                    var x = title_width + padding_x + overall_score * rect_width / 10;
 
-                       d3.select(candid_id).select(".upper-path")
-                           .attr("d", function(d){
-                               var y = padding_y * (d.row + 1) - conflict_level/2 * path_max_length;
-                               return "M " + (x - r/2).toString() + " " + y.toString() +
-                                   "L " + (x + r/2).toString() + " " + y.toString();
-                           })
-                           .attr("opacity", function(d){ return conflict_level;});
 
-                       d3.select(candid_id).select(".middle-path")
-                           .attr("d", function(d){
-                               var y = padding_y * (d.row + 1);
-                               return "M " + x.toString() + " " + (y - conflict_level/2 * path_max_length).toString() +
-                                   "L " + x.toString() + " " + (y + conflict_level/2 * path_max_length).toString();
-                           })
-                           .attr("opacity", function(d) { return conflict_level;});
+                    var candid_id = "#a" + criteria_id.toString() + candidate_id.toString();
 
-                       d3.select(candid_id).select(".middle-dot")
-                       .attr("cx", x)
-                       .attr("opacity", conflict_level); 
+
+                    d3.select(candid_id).select(".lower-path")
+                        .attr("d", function(d){
+                            var y = padding_y * (d.row + 1) + conflict_level/2 * path_max_length;
+                            return "M " + (x - r/2).toString() + " " + y.toString() +
+                                "L " + (x + r/2).toString() + " " + y.toString();
+                        })
+                        .attr("opacity", function(d) { return conflict_level;});
+
+                    d3.select(candid_id).select(".upper-path")
+                        .attr("d", function(d){
+                            var y = padding_y * (d.row + 1) - conflict_level/2 * path_max_length;
+                            return "M " + (x - r/2).toString() + " " + y.toString() +
+                                "L " + (x + r/2).toString() + " " + y.toString();
+                        })
+                        .attr("opacity", function(d){ return conflict_level;});
+
+                    d3.select(candid_id).select(".middle-path")
+                        .attr("d", function(d){
+                            var y = padding_y * (d.row + 1);
+                            return "M " + x.toString() + " " + (y - conflict_level/2 * path_max_length).toString() +
+                                "L " + x.toString() + " " + (y + conflict_level/2 * path_max_length).toString();
+                        })
+                        .attr("opacity", function(d) { return conflict_level;});
+
+                    d3.select(candid_id).select(".middle-dot")
+                        .attr("cx", x)
+                        .attr("opacity", conflict_level);
 
 
                 }
@@ -757,7 +879,7 @@ check_box.on("click", function(d){
 
 
 //    loadXMLDoc();
-    var t=setInterval("loadXMLDoc()",2000);
+    var t=setInterval("loadXMLDoc()",500);
 
 
     </script>
@@ -776,14 +898,14 @@ check_box.on("click", function(d){
         var user_id = 0;
         var temp = 0.00;
 
-        for(criteria_id = 0; criteria_id<=3; criteria_id++){
-            for(candidate_id = 0; candidate_id<=4; candidate_id++){
+        for(criteria_id = 0; criteria_id<=criteria_num; criteria_id++){
+            for(candidate_id = 0; candidate_id<=candidate_num; candidate_id++){
                 var temp = 0.00;
-                for(user_id = 1; user_id<=3; user_id++){
+                for(user_id = 1; user_id<=user_num; user_id++){
 
                     temp = temp +  parseFloat(score[criteria_id][candidate_id][user_id]);
                 }
-                temp = temp/3;
+                temp = temp/user_num;
 
                 overall[criteria_id][candidate_id] = temp;
 
@@ -804,13 +926,13 @@ check_box.on("click", function(d){
         var avg = 0.00;
         var max = 0.00;
 
-        for(criteria_id = 0; criteria_id<=3; criteria_id++){
-            for(candidate_id = 0; candidate_id<=3; candidate_id++){
+        for(criteria_id = 0; criteria_id<=criteria_num; criteria_id++){
+            for(candidate_id = 0; candidate_id<=candidate_num; candidate_id++){
                 var temp = 0.00;
                 data = 0.00;
                 avg = 0.00;
 
-                for(user_id = 1; user_id<=3; user_id++){
+                for(user_id = 1; user_id<=user_num; user_id++){
 
                     data = parseFloat(score[criteria_id][candidate_id][user_id]);
                     avg = parseFloat(overall[criteria_id][candidate_id]);
@@ -820,13 +942,15 @@ check_box.on("click", function(d){
 
 
                 }
-                temp = temp/3;
+                temp = temp/user_num;
 
                 conflict[criteria_id][candidate_id] = temp;
 
             }
         }
 
+     console.log(overall);
+     console.log(conflict);
 //        var sum = 0.00;
 //
 //        for(criteria_id = 0; criteria_id<=3; criteria_id++) {
@@ -843,16 +967,16 @@ check_box.on("click", function(d){
 //            }
 //        }
 
-        for(criteria_id = 0; criteria_id<=3; criteria_id++) {
-            for (candidate_id = 1; candidate_id <= 3; candidate_id++) {
+        for(criteria_id = 0; criteria_id<=criteria_num; criteria_id++) {
+            for (candidate_id = 1; candidate_id <= candidate_num; candidate_id++) {
                 if(conflict[criteria_id][candidate_id] > max){
                     max = conflict[criteria_id][candidate_id];
                 }
             }
         }
 
-        for(criteria_id = 0; criteria_id<=3; criteria_id++) {
-            for (candidate_id = 1; candidate_id <= 3; candidate_id++) {
+        for(criteria_id = 0; criteria_id<=criteria_num; criteria_id++) {
+            for (candidate_id = 1; candidate_id <= candidate_num; candidate_id++) {
                 conflict[criteria_id][candidate_id] = conflict[criteria_id][candidate_id] / max;
             }
         }

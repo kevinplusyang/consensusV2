@@ -24,7 +24,12 @@ $data = json_decode(stripslashes($_POST['trans_data']));
 
 //$data=$_POST['trans_data'];
 
+$result = mysql_query("select * from decision where id = '".$_GET['decision_id']."'");
+$row = mysql_fetch_array($result);
 
+$criteria_num =$row['criteria_num'];
+$candidate_num = $row['candidate_num'];
+$user_num = $row['user_num'];
 
 
 
@@ -33,8 +38,8 @@ $data = json_decode(stripslashes($_POST['trans_data']));
 mysql_query("insert into debug values('','".$_GET['user_id']."')");
 
 
-for($i = 0; $i<=3; $i++){
-    for($k = 1; $k<=4; $k++){
+for($i = 0; $i<=$criteria_num; $i++){
+    for($k = 1; $k<=$candidate_num; $k++){
         mysql_query("update score set score = '".$data[$i][$k]."' where decision_id = '".$_GET['decision_id']."' and user_id = '".$_GET['user_id']."' and criteria_id = '".$i."' and candidate_id = '".$k."' ");
     }
 }
