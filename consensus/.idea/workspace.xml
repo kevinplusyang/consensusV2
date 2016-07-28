@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="01dc21f3-104b-4c39-a363-5642ee74e9f7" name="Default" comment="" />
+    <ignored path="consensus.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="consensus" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="decisions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/decisions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9583333">
+              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+              <folding>
+                <marker date="1468271352000" expanded="true" signature="464:507" placeholder="select * fro... participate" />
+                <marker date="1468271352000" expanded="true" signature="464:532" placeholder="select * fro... participate" />
+                <marker date="1468271352000" expanded="true" signature="668:701" placeholder="select * fro... decision" />
+                <marker date="1468271352000" expanded="true" signature="668:702" placeholder="select * fro... decision" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.75">
+              <caret line="98" column="21" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
+              <folding>
+                <marker date="1468194780000" expanded="true" signature="2979:3083" placeholder="select count... user" />
+                <marker date="1468194780000" expanded="true" signature="3477:3574" placeholder="select * fro... user" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="decision.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/decision.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.4117646">
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="24" selection-end-column="5" />
+              <folding>
+                <marker date="1468279238000" expanded="true" signature="717:837" placeholder="select * fro... score" />
+                <marker date="1468279238000" expanded="true" signature="1909:2029" placeholder="select * fro... score" />
+                <marker date="1468279238000" expanded="true" signature="3082:3202" placeholder="select * fro... score" />
+                <marker date="1468279238000" expanded="true" signature="4422:4542" placeholder="select * fro... score" />
+                <marker date="1468279238000" expanded="true" signature="5588:5633" placeholder="select * fro... participate" />
+                <marker date="1468279238000" expanded="true" signature="5588:5635" placeholder="select * fro... participate" />
+                <marker date="1468279238000" expanded="true" signature="5588:5660" placeholder="select * fro... participate" />
+                <marker date="1468279238000" expanded="true" signature="5787:5818" placeholder="select * fro... user" />
+                <marker date="1468279238000" expanded="true" signature="5787:5831" placeholder="select * fro... user" />
+                <marker date="1468279238000" expanded="true" signature="6314:6502" placeholder="{...}" />
+                <marker date="1468279238000" expanded="true" signature="6366:6417" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="overall.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/overall.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.490196">
+              <caret line="79" column="8" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="overall_data.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/overall_data.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.19410746">
+              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+              <folding>
+                <marker date="1468284955000" expanded="true" signature="68:107" placeholder="select count... participate" />
+                <marker date="1468284955000" expanded="true" signature="68:122" placeholder="select count... participate" />
+                <marker date="1468284955000" expanded="true" signature="68:147" placeholder="select count... participate" />
+                <marker date="1468284955000" expanded="true" signature="422:463" placeholder="select * fro... score" />
+                <marker date="1468284955000" expanded="true" signature="422:488" placeholder="select * fro... score" />
+                <marker date="1468284955000" expanded="true" signature="422:508" placeholder="select * fro... score" />
+                <marker date="1468284955000" expanded="true" signature="422:525" placeholder="select * fro... score" />
+                <marker date="1468284955000" expanded="true" signature="422:546" placeholder="select * fro... score" />
+                <marker date="1468284955000" expanded="true" signature="422:564" placeholder="select * fro... score" />
+                <marker date="1468284955000" expanded="true" signature="783:925" placeholder="select * fro... score" />
+                <marker date="1468284955000" expanded="true" signature="1194:1279" placeholder="update overa... " />
+                <marker date="1468284955000" expanded="true" signature="1194:1298" placeholder="update overa... " />
+                <marker date="1468284955000" expanded="true" signature="1194:1315" placeholder="update overa... " />
+                <marker date="1468284955000" expanded="true" signature="1194:1354" placeholder="update overa... " />
+                <marker date="1468284955000" expanded="true" signature="1381:1541" placeholder="update confl... " />
+                <marker date="1468284955000" expanded="true" signature="1581:1624" placeholder="select * fro... score" />
+                <marker date="1468284955000" expanded="true" signature="1581:1649" placeholder="select * fro... score" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="join_decision.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/join_decision.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.291666">
+              <caret line="37" column="89" selection-start-line="37" selection-start-column="89" selection-end-line="37" selection-end-column="89" />
+              <folding>
+                <marker date="1468271924000" expanded="true" signature="263:343" placeholder="insert into participate... " />
+                <marker date="1468271924000" expanded="true" signature="362:450" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="467:555" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="572:660" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="677:765" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="782:870" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="887:975" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="992:1080" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="1097:1185" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="1202:1290" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="1307:1395" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="1412:1500" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="1517:1605" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="1623:1711" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="1728:1816" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="1833:1921" placeholder="insert into score... " />
+                <marker date="1468271924000" expanded="true" signature="1938:2026" placeholder="insert into score... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="save_data.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/save_data.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.0588236">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding>
+                <marker date="1468272228000" expanded="true" signature="473:522" placeholder="insert into score... " />
+                <marker date="1468272228000" expanded="true" signature="541:570" placeholder="insert into debug... " />
+                <marker date="1468272228000" expanded="true" signature="541:587" placeholder="insert into debug... " />
+                <marker date="1468272228000" expanded="true" signature="670:696" placeholder="update score... " />
+                <marker date="1468272228000" expanded="true" signature="670:714" placeholder="update score... " />
+                <marker date="1468272228000" expanded="true" signature="670:736" placeholder="update score... " />
+                <marker date="1468272228000" expanded="true" signature="670:777" placeholder="update score... " />
+                <marker date="1468272228000" expanded="true" signature="670:818" placeholder="update score... " />
+                <marker date="1468272228000" expanded="true" signature="670:825" placeholder="update score... " />
+                <marker date="1468272228000" expanded="true" signature="670:846" placeholder="update score... " />
+                <marker date="1468272228000" expanded="true" signature="670:853" placeholder="update score... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_decision.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/add_decision.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.9166667">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding>
+                <marker date="1468207547000" expanded="true" signature="275:371" placeholder="insert into decision... " />
+                <marker date="1468207547000" expanded="true" signature="388:422" placeholder="insert into decision... " />
+                <marker date="1468207547000" expanded="true" signature="388:452" placeholder="insert into decision... " />
+                <marker date="1468207547000" expanded="true" signature="388:453" placeholder="insert into decision... " />
+                <marker date="1468207547000" expanded="true" signature="388:480" placeholder="insert into decision... " />
+                <marker date="1468207547000" expanded="true" signature="388:482" placeholder="insert into decision... " />
+                <marker date="1468207547000" expanded="true" signature="388:508" placeholder="insert into decision... " />
+                <marker date="1468207547000" expanded="true" signature="536:565" placeholder="select * fro... decision" />
+                <marker date="1468207547000" expanded="true" signature="536:571" placeholder="select * fro... decision" />
+                <marker date="1468207547000" expanded="true" signature="536:601" placeholder="select * fro... decision" />
+                <marker date="1468207547000" expanded="true" signature="683:718" placeholder="insert into participate... " />
+                <marker date="1468207547000" expanded="true" signature="683:737" placeholder="insert into participate... " />
+                <marker date="1468207547000" expanded="true" signature="683:763" placeholder="insert into participate... " />
+                <marker date="1468207547000" expanded="true" signature="781:843" placeholder="insert into candidate... " />
+                <marker date="1468207547000" expanded="true" signature="860:922" placeholder="insert into candidate... " />
+                <marker date="1468207547000" expanded="true" signature="939:1000" placeholder="insert into candidate... " />
+                <marker date="1468207547000" expanded="true" signature="1017:1078" placeholder="insert into candidate... " />
+                <marker date="1468207547000" expanded="true" signature="1096:1163" placeholder="insert into criteria... " />
+                <marker date="1468207547000" expanded="true" signature="1180:1248" placeholder="insert into criteria... " />
+                <marker date="1468207547000" expanded="true" signature="1265:1332" placeholder="insert into criteria... " />
+                <marker date="1468207547000" expanded="true" signature="1350:1438" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="1455:1543" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="1560:1648" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="1665:1753" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="1770:1858" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="1875:1963" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="1980:2068" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="2085:2173" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="2190:2278" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="2295:2383" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="2400:2488" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="2505:2593" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="2611:2699" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="2716:2804" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="2821:2909" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="2926:3014" placeholder="insert into score... " />
+                <marker date="1468207547000" expanded="true" signature="3032:3095" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3112:3175" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3192:3255" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3272:3335" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3352:3415" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3432:3495" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3512:3575" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3592:3655" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3672:3735" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3752:3815" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3832:3895" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3912:3975" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="3993:4056" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="4073:4136" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="4153:4216" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="4233:4296" placeholder="insert into overall... " />
+                <marker date="1468207547000" expanded="true" signature="4314:4376" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="4393:4455" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="4472:4534" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="4551:4613" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="4630:4692" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="4709:4771" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="4788:4850" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="4867:4929" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="4946:5008" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="5025:5087" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="5104:5166" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="5183:5245" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="5263:5325" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="5342:5404" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="5421:5483" placeholder="insert into conflict... " />
+                <marker date="1468207547000" expanded="true" signature="5500:5562" placeholder="insert into conflict... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/register.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.75">
+              <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+              <folding>
+                <marker date="1468271842000" expanded="true" signature="4053:4078" placeholder="insert into user... " />
+                <marker date="1468271842000" expanded="true" signature="4053:4155" placeholder="insert into user... " />
+                <marker date="1468271842000" expanded="true" signature="4223:4257" placeholder="select * fro... user" />
+                <marker date="1468271842000" expanded="true" signature="4223:4277" placeholder="select * fro... user" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/dbaccess.php" />
+        <option value="$PROJECT_DIR$/logout.php" />
+        <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/add_decision.php" />
+        <option value="$PROJECT_DIR$/decisions.php" />
+        <option value="$PROJECT_DIR$/register.php" />
+        <option value="$PROJECT_DIR$/join_decision.php" />
+        <option value="$PROJECT_DIR$/save_data.php" />
+        <option value="$PROJECT_DIR$/xml.php" />
+        <option value="$PROJECT_DIR$/decision.php" />
+        <option value="$PROJECT_DIR$/overall.php" />
+        <option value="$PROJECT_DIR$/overall_data.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="10" />
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="721" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="consensus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="consensus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="consensus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/demo" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="01dc21f3-104b-4c39-a363-5642ee74e9f7" name="Default" comment="" />
+      <created>1468172455221</created>
+      <option name="number" value="Default" />
+      <updated>1468172455221</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="10" y="23" width="1280" height="721" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26171243" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbaccess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decisions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="43" selection-start-line="22" selection-start-column="3" selection-end-line="23" selection-end-column="43" />
+          <folding>
+            <marker date="1468271352000" expanded="true" signature="464:507" placeholder="select * fro... participate" />
+            <marker date="1468271352000" expanded="true" signature="464:532" placeholder="select * fro... participate" />
+            <marker date="1468271352000" expanded="true" signature="668:701" placeholder="select * fro... decision" />
+            <marker date="1468271352000" expanded="true" signature="668:702" placeholder="select * fro... decision" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/join_decision.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+          <folding>
+            <marker date="1468271924000" expanded="true" signature="263:343" placeholder="insert into participate... " />
+            <marker date="1468271924000" expanded="true" signature="362:450" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="467:555" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="572:660" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="677:765" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="782:870" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="887:975" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="992:1080" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1097:1185" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1202:1290" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1307:1395" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1412:1500" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1517:1605" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1623:1711" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1728:1816" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1833:1921" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1938:2026" placeholder="insert into score... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calculate_individual.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decision.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1468279238000" expanded="true" signature="717:837" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="1909:2029" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="3082:3202" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="4422:4542" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="5588:5633" placeholder="select * fro... participate" />
+            <marker date="1468279238000" expanded="true" signature="5588:5635" placeholder="select * fro... participate" />
+            <marker date="1468279238000" expanded="true" signature="5588:5660" placeholder="select * fro... participate" />
+            <marker date="1468279238000" expanded="true" signature="5787:5818" placeholder="select * fro... user" />
+            <marker date="1468279238000" expanded="true" signature="5787:5831" placeholder="select * fro... user" />
+            <marker date="1468279238000" expanded="true" signature="6314:6502" placeholder="{...}" />
+            <marker date="1468279238000" expanded="true" signature="6366:6417" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_data.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <marker date="1468272228000" expanded="true" signature="473:522" placeholder="insert into score... " />
+            <marker date="1468272228000" expanded="true" signature="541:570" placeholder="insert into debug... " />
+            <marker date="1468272228000" expanded="true" signature="541:587" placeholder="insert into debug... " />
+            <marker date="1468272228000" expanded="true" signature="670:696" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:714" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:736" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:777" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:818" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:825" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:846" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:853" placeholder="update score... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_decision.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="89" selection-start-line="53" selection-start-column="89" selection-end-line="53" selection-end-column="89" />
+          <folding>
+            <marker date="1468207547000" expanded="true" signature="275:371" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:422" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:452" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:453" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:480" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:482" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:508" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="536:565" placeholder="select * fro... decision" />
+            <marker date="1468207547000" expanded="true" signature="536:571" placeholder="select * fro... decision" />
+            <marker date="1468207547000" expanded="true" signature="536:601" placeholder="select * fro... decision" />
+            <marker date="1468207547000" expanded="true" signature="683:718" placeholder="insert into participate... " />
+            <marker date="1468207547000" expanded="true" signature="683:737" placeholder="insert into participate... " />
+            <marker date="1468207547000" expanded="true" signature="683:763" placeholder="insert into participate... " />
+            <marker date="1468207547000" expanded="true" signature="781:843" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="860:922" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="939:1000" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="1017:1078" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="1096:1163" placeholder="insert into criteria... " />
+            <marker date="1468207547000" expanded="true" signature="1180:1248" placeholder="insert into criteria... " />
+            <marker date="1468207547000" expanded="true" signature="1265:1332" placeholder="insert into criteria... " />
+            <marker date="1468207547000" expanded="true" signature="1350:1438" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1455:1543" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1560:1648" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1665:1753" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1770:1858" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1875:1963" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1980:2068" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2085:2173" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2190:2278" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2295:2383" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2400:2488" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2505:2593" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2611:2699" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2716:2804" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2821:2909" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2926:3014" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="3032:3095" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3112:3175" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3192:3255" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3272:3335" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3352:3415" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3432:3495" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3512:3575" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3592:3655" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3672:3735" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3752:3815" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3832:3895" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3912:3975" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3993:4056" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4073:4136" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4153:4216" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4233:4296" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4314:4376" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4393:4455" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4472:4534" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4551:4613" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4630:4692" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4709:4771" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4788:4850" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4867:4929" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4946:5008" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5025:5087" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5104:5166" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5183:5245" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5263:5325" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5342:5404" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5421:5483" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5500:5562" placeholder="insert into conflict... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="32" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="32" />
+          <folding>
+            <marker date="1468271842000" expanded="true" signature="4053:4078" placeholder="insert into user... " />
+            <marker date="1468271842000" expanded="true" signature="4053:4155" placeholder="insert into user... " />
+            <marker date="1468271842000" expanded="true" signature="4223:4257" placeholder="select * fro... user" />
+            <marker date="1468271842000" expanded="true" signature="4223:4277" placeholder="select * fro... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbaccess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
+          <folding>
+            <marker date="1468194780000" expanded="true" signature="2979:3083" placeholder="select count... user" />
+            <marker date="1468194780000" expanded="true" signature="3477:3574" placeholder="select * fro... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decisions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="43" selection-start-line="22" selection-start-column="3" selection-end-line="23" selection-end-column="43" />
+          <folding>
+            <marker date="1468271352000" expanded="true" signature="464:507" placeholder="select * fro... participate" />
+            <marker date="1468271352000" expanded="true" signature="464:532" placeholder="select * fro... participate" />
+            <marker date="1468271352000" expanded="true" signature="668:701" placeholder="select * fro... decision" />
+            <marker date="1468271352000" expanded="true" signature="668:702" placeholder="select * fro... decision" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/join_decision.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+          <folding>
+            <marker date="1468271924000" expanded="true" signature="263:343" placeholder="insert into participate... " />
+            <marker date="1468271924000" expanded="true" signature="362:450" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="467:555" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="572:660" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="677:765" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="782:870" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="887:975" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="992:1080" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1097:1185" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1202:1290" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1307:1395" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1412:1500" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1517:1605" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1623:1711" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1728:1816" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1833:1921" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1938:2026" placeholder="insert into score... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calculate_individual.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decision.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1468279238000" expanded="true" signature="717:837" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="1909:2029" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="3082:3202" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="4422:4542" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="5588:5633" placeholder="select * fro... participate" />
+            <marker date="1468279238000" expanded="true" signature="5588:5635" placeholder="select * fro... participate" />
+            <marker date="1468279238000" expanded="true" signature="5588:5660" placeholder="select * fro... participate" />
+            <marker date="1468279238000" expanded="true" signature="5787:5818" placeholder="select * fro... user" />
+            <marker date="1468279238000" expanded="true" signature="5787:5831" placeholder="select * fro... user" />
+            <marker date="1468279238000" expanded="true" signature="6314:6502" placeholder="{...}" />
+            <marker date="1468279238000" expanded="true" signature="6366:6417" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_decision.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="89" selection-start-line="53" selection-start-column="89" selection-end-line="53" selection-end-column="89" />
+          <folding>
+            <marker date="1468207547000" expanded="true" signature="275:371" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:422" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:452" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:453" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:480" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:482" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:508" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="536:565" placeholder="select * fro... decision" />
+            <marker date="1468207547000" expanded="true" signature="536:571" placeholder="select * fro... decision" />
+            <marker date="1468207547000" expanded="true" signature="536:601" placeholder="select * fro... decision" />
+            <marker date="1468207547000" expanded="true" signature="683:718" placeholder="insert into participate... " />
+            <marker date="1468207547000" expanded="true" signature="683:737" placeholder="insert into participate... " />
+            <marker date="1468207547000" expanded="true" signature="683:763" placeholder="insert into participate... " />
+            <marker date="1468207547000" expanded="true" signature="781:843" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="860:922" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="939:1000" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="1017:1078" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="1096:1163" placeholder="insert into criteria... " />
+            <marker date="1468207547000" expanded="true" signature="1180:1248" placeholder="insert into criteria... " />
+            <marker date="1468207547000" expanded="true" signature="1265:1332" placeholder="insert into criteria... " />
+            <marker date="1468207547000" expanded="true" signature="1350:1438" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1455:1543" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1560:1648" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1665:1753" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1770:1858" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1875:1963" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1980:2068" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2085:2173" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2190:2278" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2295:2383" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2400:2488" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2505:2593" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2611:2699" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2716:2804" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2821:2909" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2926:3014" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="3032:3095" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3112:3175" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3192:3255" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3272:3335" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3352:3415" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3432:3495" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3512:3575" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3592:3655" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3672:3735" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3752:3815" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3832:3895" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3912:3975" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3993:4056" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4073:4136" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4153:4216" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4233:4296" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4314:4376" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4393:4455" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4472:4534" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4551:4613" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4630:4692" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4709:4771" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4788:4850" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4867:4929" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4946:5008" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5025:5087" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5104:5166" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5183:5245" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5263:5325" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5342:5404" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5421:5483" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5500:5562" placeholder="insert into conflict... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="32" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="32" />
+          <folding>
+            <marker date="1468271842000" expanded="true" signature="4053:4078" placeholder="insert into user... " />
+            <marker date="1468271842000" expanded="true" signature="4053:4155" placeholder="insert into user... " />
+            <marker date="1468271842000" expanded="true" signature="4223:4257" placeholder="select * fro... user" />
+            <marker date="1468271842000" expanded="true" signature="4223:4277" placeholder="select * fro... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbaccess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calculate_individual.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/join_decision.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.291666">
+          <caret line="37" column="89" selection-start-line="37" selection-start-column="89" selection-end-line="37" selection-end-column="89" />
+          <folding>
+            <marker date="1468271924000" expanded="true" signature="263:343" placeholder="insert into participate... " />
+            <marker date="1468271924000" expanded="true" signature="362:450" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="467:555" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="572:660" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="677:765" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="782:870" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="887:975" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="992:1080" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1097:1185" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1202:1290" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1307:1395" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1412:1500" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1517:1605" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1623:1711" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1728:1816" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1833:1921" placeholder="insert into score... " />
+            <marker date="1468271924000" expanded="true" signature="1938:2026" placeholder="insert into score... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add_decision.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9166667">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <marker date="1468207547000" expanded="true" signature="275:371" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:422" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:452" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:453" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:480" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:482" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="388:508" placeholder="insert into decision... " />
+            <marker date="1468207547000" expanded="true" signature="536:565" placeholder="select * fro... decision" />
+            <marker date="1468207547000" expanded="true" signature="536:571" placeholder="select * fro... decision" />
+            <marker date="1468207547000" expanded="true" signature="536:601" placeholder="select * fro... decision" />
+            <marker date="1468207547000" expanded="true" signature="683:718" placeholder="insert into participate... " />
+            <marker date="1468207547000" expanded="true" signature="683:737" placeholder="insert into participate... " />
+            <marker date="1468207547000" expanded="true" signature="683:763" placeholder="insert into participate... " />
+            <marker date="1468207547000" expanded="true" signature="781:843" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="860:922" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="939:1000" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="1017:1078" placeholder="insert into candidate... " />
+            <marker date="1468207547000" expanded="true" signature="1096:1163" placeholder="insert into criteria... " />
+            <marker date="1468207547000" expanded="true" signature="1180:1248" placeholder="insert into criteria... " />
+            <marker date="1468207547000" expanded="true" signature="1265:1332" placeholder="insert into criteria... " />
+            <marker date="1468207547000" expanded="true" signature="1350:1438" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1455:1543" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1560:1648" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1665:1753" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1770:1858" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1875:1963" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="1980:2068" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2085:2173" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2190:2278" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2295:2383" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2400:2488" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2505:2593" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2611:2699" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2716:2804" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2821:2909" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="2926:3014" placeholder="insert into score... " />
+            <marker date="1468207547000" expanded="true" signature="3032:3095" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3112:3175" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3192:3255" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3272:3335" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3352:3415" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3432:3495" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3512:3575" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3592:3655" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3672:3735" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3752:3815" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3832:3895" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3912:3975" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="3993:4056" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4073:4136" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4153:4216" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4233:4296" placeholder="insert into overall... " />
+            <marker date="1468207547000" expanded="true" signature="4314:4376" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4393:4455" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4472:4534" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4551:4613" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4630:4692" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4709:4771" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4788:4850" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4867:4929" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="4946:5008" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5025:5087" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5104:5166" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5183:5245" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5263:5325" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5342:5404" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5421:5483" placeholder="insert into conflict... " />
+            <marker date="1468207547000" expanded="true" signature="5500:5562" placeholder="insert into conflict... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.75">
+          <caret line="98" column="21" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
+          <folding>
+            <marker date="1468194780000" expanded="true" signature="2979:3083" placeholder="select count... user" />
+            <marker date="1468194780000" expanded="true" signature="3477:3574" placeholder="select * fro... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decisions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9583333">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding>
+            <marker date="1468271352000" expanded="true" signature="464:507" placeholder="select * fro... participate" />
+            <marker date="1468271352000" expanded="true" signature="464:532" placeholder="select * fro... participate" />
+            <marker date="1468271352000" expanded="true" signature="668:701" placeholder="select * fro... decision" />
+            <marker date="1468271352000" expanded="true" signature="668:702" placeholder="select * fro... decision" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.75">
+          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding>
+            <marker date="1468271842000" expanded="true" signature="4053:4078" placeholder="insert into user... " />
+            <marker date="1468271842000" expanded="true" signature="4053:4155" placeholder="insert into user... " />
+            <marker date="1468271842000" expanded="true" signature="4223:4257" placeholder="select * fro... user" />
+            <marker date="1468271842000" expanded="true" signature="4223:4277" placeholder="select * fro... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_data.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.0588236">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <marker date="1468272228000" expanded="true" signature="473:522" placeholder="insert into score... " />
+            <marker date="1468272228000" expanded="true" signature="541:570" placeholder="insert into debug... " />
+            <marker date="1468272228000" expanded="true" signature="541:587" placeholder="insert into debug... " />
+            <marker date="1468272228000" expanded="true" signature="670:696" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:714" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:736" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:777" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:818" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:825" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:846" placeholder="update score... " />
+            <marker date="1468272228000" expanded="true" signature="670:853" placeholder="update score... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decision.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4117646">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <marker date="1468279238000" expanded="true" signature="717:837" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="1909:2029" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="3082:3202" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="4422:4542" placeholder="select * fro... score" />
+            <marker date="1468279238000" expanded="true" signature="5588:5633" placeholder="select * fro... participate" />
+            <marker date="1468279238000" expanded="true" signature="5588:5635" placeholder="select * fro... participate" />
+            <marker date="1468279238000" expanded="true" signature="5588:5660" placeholder="select * fro... participate" />
+            <marker date="1468279238000" expanded="true" signature="5787:5818" placeholder="select * fro... user" />
+            <marker date="1468279238000" expanded="true" signature="5787:5831" placeholder="select * fro... user" />
+            <marker date="1468279238000" expanded="true" signature="6314:6502" placeholder="{...}" />
+            <marker date="1468279238000" expanded="true" signature="6366:6417" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/overall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.490196">
+          <caret line="79" column="8" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/overall_data.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19410746">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <marker date="1468284955000" expanded="true" signature="68:107" placeholder="select count... participate" />
+            <marker date="1468284955000" expanded="true" signature="68:122" placeholder="select count... participate" />
+            <marker date="1468284955000" expanded="true" signature="68:147" placeholder="select count... participate" />
+            <marker date="1468284955000" expanded="true" signature="422:463" placeholder="select * fro... score" />
+            <marker date="1468284955000" expanded="true" signature="422:488" placeholder="select * fro... score" />
+            <marker date="1468284955000" expanded="true" signature="422:508" placeholder="select * fro... score" />
+            <marker date="1468284955000" expanded="true" signature="422:525" placeholder="select * fro... score" />
+            <marker date="1468284955000" expanded="true" signature="422:546" placeholder="select * fro... score" />
+            <marker date="1468284955000" expanded="true" signature="422:564" placeholder="select * fro... score" />
+            <marker date="1468284955000" expanded="true" signature="783:925" placeholder="select * fro... score" />
+            <marker date="1468284955000" expanded="true" signature="1194:1279" placeholder="update overa... " />
+            <marker date="1468284955000" expanded="true" signature="1194:1298" placeholder="update overa... " />
+            <marker date="1468284955000" expanded="true" signature="1194:1315" placeholder="update overa... " />
+            <marker date="1468284955000" expanded="true" signature="1194:1354" placeholder="update overa... " />
+            <marker date="1468284955000" expanded="true" signature="1381:1541" placeholder="update confl... " />
+            <marker date="1468284955000" expanded="true" signature="1581:1624" placeholder="select * fro... score" />
+            <marker date="1468284955000" expanded="true" signature="1581:1649" placeholder="select * fro... score" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

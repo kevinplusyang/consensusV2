@@ -27,7 +27,7 @@ require_once "dbaccess.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>ConsensUs Pilot Study</title>
+    <title>Material Design Lite</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -130,7 +130,7 @@ require_once "dbaccess.php";
                             <br>
 
                             <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                Login
+                               Login
                             </button>
 
                         </form>
@@ -187,6 +187,14 @@ require_once "dbaccess.php";
         ?>
 
 
+<!--        <footer class="demo-footer mdl-mini-footer">-->
+<!--            <div class="mdl-mini-footer--left-section">-->
+<!--                <ul class="mdl-mini-footer--link-list">-->
+<!--                    <li><a href="#">ProtoLab</a></li>-->
+<!---->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </footer>-->
     </main>
 </div>
 
@@ -195,9 +203,6 @@ require_once "dbaccess.php";
 <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 </body>
 </html>
-
-
-
 
 
 

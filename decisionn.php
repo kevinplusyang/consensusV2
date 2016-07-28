@@ -68,7 +68,7 @@ $user_name = $row['user_name'];
 <!--</nav>-->
 
 
-<button onclick="location='overall.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user'];?>'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 10px; margin-top: 5px">
+<button onclick="location='overalll.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user'];?>'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 10px; margin-top: 5px">
     Next
 </button>
 
@@ -108,7 +108,7 @@ $user_name = $row['user_name'];
     var candidate_num = parseInt(<?php echo $candidate_num;?>);
     var user_num = parseInt(<?php echo $user_num;?>);
 
-    
+
 
 
 
@@ -172,7 +172,6 @@ $user_name = $row['user_name'];
                 var obj = eval(xmlhttp.responseText);
 
 //                console.log(obj.length);
-
 
 
 
@@ -690,7 +689,6 @@ $user_name = $row['user_name'];
 
 
 
-
                         for(var m = 1; m <4; m++ ){
                             for(var n = 1; n <4; n++){
 
@@ -756,7 +754,7 @@ $user_name = $row['user_name'];
 
         },
             xmlhttp.open("GET","fetch_individual_data.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user']?>",true);
-            xmlhttp.send();
+        xmlhttp.send();
 
 
 
@@ -770,8 +768,8 @@ $user_name = $row['user_name'];
 
 
 
-//    loadXMLDoc();
-        var t=setInterval("loadXMLDoc()",500);
+    //    loadXMLDoc();
+    var t=setInterval("loadXMLDoc()",500);
 
 
 
@@ -823,8 +821,8 @@ $user_name = $row['user_name'];
 
     }
 
-    
-    
+
+
 
 
 

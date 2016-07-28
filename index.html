@@ -83,21 +83,58 @@
           <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
           <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
             <div class="demo-crumbs mdl-color-text--grey-500">
-              ConsensUs &gt; Consent Form &gt; Instruction
+              ConsensUs &gt; Consent Form
             </div>
-            <h3>Instruction</h3>
+            <h3>Consent Form</h3>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/-CmadmM5cOk" frameborder="0" allowfullscreen></iframe>
+              <p>
+                Content Here.
+              </p>
+            <p>
+              Content Here.
+            </p>
+            <p>
+              Content Here.
+            </p>
+            <p>
+              Content Here.
+            </p>
+            <p>
+              Content Here.
+            </p>
 
-            <br>
+            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+              <label><input name="" type="checkbox" value="" id="regText"  class="mdl-checkbox__input">I Agree the Consent Above</label>
 
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-              Start Pilot
+              <!--<input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">-->
+              <!--<span class="mdl-checkbox__label">I Agree</span>-->
+            </label>
+
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="regBtn" disabled>
+              Button
             </button>
 
 
 
 
+
+
+            <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.min.js"></script>
+            <script>
+
+              $(function(){
+                var regBtn = $("#regBtn");
+                $("#regText").change(function(){
+                  var that = $(this);
+                  that.prop("checked",that.prop("checked"));
+                  if(that.prop("checked")){
+                    regBtn.prop("disabled",false)
+                  }else{
+                    regBtn.prop("disabled",true)
+                  }
+                });
+              });
+            </script>
 
 
           </div>

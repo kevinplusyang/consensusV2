@@ -53,23 +53,10 @@ $user_name = $row['user_name'];
 
 ?>
 
-<!--<nav class="navbar navbar-default navbar-fixed-top">-->
-<!--    <div class="container">-->
-<!--        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">-->
-<!--            <ul class="nav navbar-nav">-->
-<!--                <li class="active"><a href="#">Individual Page</a></li>-->
-<!--                <li><a href="overall.php?decision_id=--><?php //echo $_GET['decision_id']?><!--&user_id=--><?php //echo $_GET['user'];?><!--">Group Page</a></li>-->
-<!---->
-<!--            </ul>-->
-<!--            <p class="navbar-text">Voter Name: <b>--><?php //echo $user_name;?><!--</b></p>-->
-<!--        </div>-->
-<!---->
-<!--    </div>-->
-<!--</nav>-->
+<br>
 
-
-<button onclick="location='overall.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user'];?>'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 10px; margin-top: 5px">
-    Next
+<button onclick="location='http://goo.gl/forms/2Bk1cmcva4Flvh2j2'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 10px">
+    Finish This Study
 </button>
 
 
@@ -108,7 +95,7 @@ $user_name = $row['user_name'];
     var candidate_num = parseInt(<?php echo $candidate_num;?>);
     var user_num = parseInt(<?php echo $user_num;?>);
 
-    
+
 
 
 
@@ -172,8 +159,6 @@ $user_name = $row['user_name'];
                 var obj = eval(xmlhttp.responseText);
 
 //                console.log(obj.length);
-
-
 
 
                 //sijia's part ********************************************************************************************************
@@ -689,8 +674,6 @@ $user_name = $row['user_name'];
 
 
 
-
-
                         for(var m = 1; m <4; m++ ){
                             for(var n = 1; n <4; n++){
 
@@ -755,8 +738,8 @@ $user_name = $row['user_name'];
 
 
         },
-            xmlhttp.open("GET","fetch_individual_data.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user']?>",true);
-            xmlhttp.send();
+            xmlhttp.open("GET","fetch_individual_data_post.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user']?>",true);
+        xmlhttp.send();
 
 
 
@@ -770,8 +753,8 @@ $user_name = $row['user_name'];
 
 
 
-//    loadXMLDoc();
-        var t=setInterval("loadXMLDoc()",500);
+    //    loadXMLDoc();
+    var t=setInterval("loadXMLDoc()",500);
 
 
 
@@ -823,8 +806,8 @@ $user_name = $row['user_name'];
 
     }
 
-    
-    
+
+
 
 
 
@@ -884,7 +867,7 @@ $user_name = $row['user_name'];
 //        console.log(jsonString);
 
         $.ajax({
-            url: "save_data.php?decision_id=<?php echo $_GET['decision_id'];?>&user_id=<?php echo $_GET['user'];?>",
+            url: "save_data_post.php?decision_id=<?php echo $_GET['decision_id'];?>&user_id=<?php echo $_GET['user'];?>",
             type: "POST",
             data:{trans_data:jsonString},
             traditional: true,

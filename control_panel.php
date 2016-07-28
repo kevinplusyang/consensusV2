@@ -65,6 +65,16 @@ Create a New Study:
     <input type="text" placeholder="Description" name="description">
     <br>
 
+    <select name="group_type">
+        <option value="0">
+            Experimental Group
+        </option>
+        <option value="1">
+            Control Group
+        </option>
+    </select>
+
+
 
     <button type="submit">Creat Pilot Study</button>
 </form>

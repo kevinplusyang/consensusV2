@@ -44,7 +44,7 @@ $user_num = $row['user_num'];
 
         scores[k]=new Array();  //声明二维，每一个一维数组里面的一个元素都是一个数组；
 
-        for(var j=0;j<4;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
+        for(var j=0;j<candidate_num;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
 
             scores[k][j]=0;    //这里将变量初始化，我这边统一初始化为空，后面在用所需的值覆盖里面的值
         }
@@ -53,32 +53,6 @@ $user_num = $row['user_num'];
 
 
 </script>
-
-
-
-<script>
-    var criteria_num = parseInt(<?php echo $criteria_num;?>);
-    var candidate_num = parseInt(<?php echo $candidate_num;?>);
-    var user_num = parseInt(<?php echo $user_num;?>);
-
-
-
-    scores2 = new Array();
-    for(var k=0;k<criteria_num+1;k++){    //一维长度为i,i为变量，可以根据实际情况改变
-
-        scores2[k]=new Array();  //声明二维，每一个一维数组里面的一个元素都是一个数组；
-
-        for(var j=0;j<4;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
-
-            scores2[k][j]=0;    //这里将变量初始化，我这边统一初始化为空，后面在用所需的值覆盖里面的值
-        }
-    }
-
-
-
-</script>
-
-
 
 
 <table border="1">
@@ -118,7 +92,7 @@ $user_num = $row['user_num'];
     </tr>
 
 
-    <!--    --><?php
+<!--    --><?php
     //    $ResultTable = mysql_query("select * from ")
     //    ?>
 
@@ -146,7 +120,7 @@ $user_num = $row['user_num'];
                     scores[<?php echo $criteria_id;?>][<?php echo $candidate_id;?>] = <?php echo $score;?>;
 
                 </script>
-<!--                <input type="text"  id="--><?php //echo $criteria_id;?><!----><?php //echo  $candidate_id;?><!--" value="--><?php //echo $score;?><!--" onchange="change(this.id)" />-->
+                <input type="text"  id="<?php echo $criteria_id;?><?php echo  $candidate_id;?>" value="<?php echo $score;?>" onchange="change(this.id)" />
                 Score: <?php echo $score;?>
             </td>
             <?php
@@ -192,7 +166,15 @@ $user_num = $row['user_num'];
         }
 
         ?>
-        
+
+        <script>
+
+//            console.log(scores[2][1]);
+//            console.log(scores[2][2]);
+//            console.log(scores[2][3]);
+//            console.log(scores[2][4]);
+
+        </script>
     </tr>
 
 
@@ -248,7 +230,7 @@ $user_num = $row['user_num'];
 
         ?>
 
-        <a href="decision2.php?decision_id=<?php echo $_GET['decision_id'];?>&user=<?php echo $user_id;?>"><?php echo $username;?></a>
+        <a href="decision.php?decision_id=<?php echo $_GET['decision_id'];?>&user=<?php echo $user_id;?>"><?php echo $username;?></a>
 
         <?php
 
@@ -268,18 +250,18 @@ $user_num = $row['user_num'];
     i = 1;
     var j = 1;
     var temp = 0;
-    for(i = 1; i<=3; i++){
+    for(i = 1; i<=4; i++){
         temp = 0.00;
         for(j = 1; j<=3; j++){
             temp = temp + scores[j][i];
         }
         temp = temp/3;
         scores[0][i] = temp;
-//        document.getElementById("0"+i+"").innerHTML=temp;
+        document.getElementById("0"+i+"").innerHTML=temp;
     }
 
     for(i = 1; i<=4; i++){
-        console.log(scores[0][i]);
+        console.log(scores[0][1]);
     }
 
 </script>
@@ -317,7 +299,7 @@ $user_num = $row['user_num'];
     }
     str = str + "]"
 
-    //    console.log(str);
+    console.log(str);
 
 </script>
 
@@ -327,163 +309,32 @@ $user_num = $row['user_num'];
 
 
 
-
-
-
 <script>
-    function loadXMLDoc()
-    {
+
+    
+    
+    function change(x){
+
+        var num = document.getElementById(x).value;
+
+        var candidate_id = x%10;
+        x = x - candidate_id;
+        var criteria_id = x/10;
 
 
-        var xmlhttp;
-        if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {// code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
+        updateTable(criteria_id, candidate_id, num);
 
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
+        var newData = calculate(candidate_id, criteria_id);
 
+        updateTableOverall(criteria_id, candidate_id, newData);
 
-//                console.log(xmlhttp.responseText);
-                var obj = eval(xmlhttp.responseText);
-                var criteria_id = 0;
-                var candidate_id = 0;
-                var score_data = 0.00;
+        document.getElementById("0"+candidate_id+"").innerHTML = newData;
 
-
-                for(var i = 0; i < obj.length; i++){
-                    criteria_id = obj[i][3];
-                    candidate_id = obj[i][4];
-                    score_data = obj[i][5];
-
-                    scores[criteria_id][candidate_id] = score_data;
-
-
-                }
-
-//                console.log(scores);
-
-
-                for(var m = 1; m <4; m++ ){
-                    for(var n = 1; n <4; n++){
-
-                            if(scores2[m][n] == scores[m][n]){
-
-                            }else {
-                                recaculate();
-                                save();
-                                oneChanged(m, n);
-//                                updateTable(m, n, parseInt(scores[m][n]));
-                            }
-                            scores2[m][n] = scores[m][n];
-                    }
-                }
-
-
-
-
-
-            }
-
-
-
-        },
-            xmlhttp.open("GET","fetch_individual_data.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_SESSION['user_id'];?>",true);
-        xmlhttp.send();
-
-
-
-        function oneChanged(criteria_id, candidate_id){
-            var title_width = 150;
-            var rect_width=300;
-            var padding_x = 10, padding_y = 70;
-            var score1 = scores[criteria_id][candidate_id];
-            var score2 = scores[0][candidate_id];
-            var id1 = "#a" + criteria_id.toString() + candidate_id.toString();
-            var id2 = "#a0" + candidate_id.toString();
-
-            d3.select(id1).select("circle")
-                .attr("cx", function(d) {return d.x = title_width + padding_x + rect_width / 10 * score1; })
-
-            d3.select(id2).select("circle")
-                .attr("cx", function(d) {return d.x = title_width + padding_x + rect_width / 10 * score2; })
-
-        }
+        save();
 
 
 
     }
-
-
-        var t=setInterval("loadXMLDoc()",2000);
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-<script>
-
-
-//    function change(x){
-//
-//        var num = document.getElementById(x).value;
-//
-//        var candidate_id = x%10;
-//        x = x - candidate_id;
-//        var criteria_id = x/10;
-//
-//
-////        console.log(criteria_id);
-////        console.log(candidate_id);
-////        console.log(num);
-//
-//
-//        updateTable(criteria_id, candidate_id, num);
-//
-//        var newData = calculate(candidate_id, criteria_id);
-//
-////        console.log("newdata");
-////        console.log(newData);
-//
-//        updateTableOverall(criteria_id, candidate_id, newData);
-//
-//        document.getElementById("0"+candidate_id+"").innerHTML = newData;
-//
-//        save();
-//
-//
-//
-//    }
-
-function recaculate() {
-    var i = 1;
-    var j = 1;
-    var temp = 0.00;
-
-    for(i = 1; i <= 3; i++){
-        temp = 0;
-        for(j = 1; j<=3; j++){
-            temp = temp + scores[j][i];
-        }
-        scores[0][i] = temp/3;
-    }
-
-}
 
 
     function tableChanged(criteria_id, candidate_id, score){
@@ -496,6 +347,7 @@ function recaculate() {
 
         updateTableOverall(criteria_id, candidate_id, newData);
 
+//        document.getElementById("0"+candidate_id+"").innerHTML = newData;
 
         save();
 
@@ -506,7 +358,6 @@ function recaculate() {
 
 
     function updateTable(criteria_id, candidate_id, num){
-
         num = parseFloat(num);
         scores[criteria_id][candidate_id] = num;
     }
@@ -525,12 +376,11 @@ function recaculate() {
 
         for(i = 1; i<=3; i++){
 
-            temp = temp + parseInt(scores[i][candidate_id]);
-
+            temp = temp + scores[i][candidate_id];
+            console.log(temp);
 
 
         }
-
         return temp/3;
     }
 

@@ -30,7 +30,6 @@ $user_num = $row['user_num'];
 mysql_query("insert into debug values('','".$_GET['user_id']."')");
 for($i = 0; $i<=$criteria_num; $i++){
     for($k = 1; $k<=$candidate_num; $k++){
-        mysql_query("update score set score = '".$data[$i][$k]."' where decision_id = '".$_GET['decision_id']."' and user_id = '".$_GET['user_id']."' and criteria_id = '".$i."' and candidate_id = '".$k."' ");
         mysql_query("update score_backup set score = '".$data[$i][$k]."' where decision_id = '".$_GET['decision_id']."' and user_id = '".$_GET['user_id']."' and criteria_id = '".$i."' and candidate_id = '".$k."' ");
 
     }

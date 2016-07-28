@@ -20,7 +20,7 @@
 require_once "dbaccess.php";
 
 
-mysql_query("insert into decision values ('', '".$_POST['studyname']."', '".$_POST['description']."', '1', '3','4','0')");
+mysql_query("insert into decision values ('', '".$_POST['studyname']."', '".$_POST['description']."', '1', '3','4','0','".$_POST['group_type']."')");
 
 $result = mysql_query("select * from decision where name = '".$_POST['studyname']."' ");
 $row = mysql_fetch_array($result);
