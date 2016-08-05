@@ -8,4 +8,7 @@ mysql_query("truncate decision;");
 mysql_query("truncate overall;");
 mysql_query("truncate participate;");
 mysql_query("truncate score;");
+mysql_query("truncate score_backup;");
 mysql_query("truncate user;");
+mysql_query("truncate survey;");
+mysql_query("truncate reason;");

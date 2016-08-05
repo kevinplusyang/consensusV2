@@ -50,39 +50,39 @@ mysql_query("update decision set user_num = user_num + 1 where id = '".$decision
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','1','1','-1')");
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','2','1','-1')");
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','3','1','-1')");
+mysql_query("insert into score values('','".$decision_id."','".$user_num."','4','1','-1')");
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','1','2','-1')");
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','2','2','-1')");
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','3','2','-1')");
+mysql_query("insert into score values('','".$decision_id."','".$user_num."','4','2','-1')");
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','1','3','-1')");
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','2','3','-1')");
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','3','3','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','1','4','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','2','4','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','3','4','-1')");
+mysql_query("insert into score values('','".$decision_id."','".$user_num."','4','3','-1')");
+
 
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','0','1','-1')");
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','0','2','-1')");
 mysql_query("insert into score values('','".$decision_id."','".$user_num."','0','3','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','0','4','-1')");
 
 
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','1','1','-1')");
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','2','1','-1')");
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','3','1','-1')");
+mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','4','1','-1')");
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','1','2','-1')");
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','2','2','-1')");
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','3','2','-1')");
+mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','4','2','-1')");
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','1','3','-1')");
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','2','3','-1')");
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','3','3','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','1','4','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','2','4','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','3','4','-1')");
+mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','4','3','-1')");
+
 
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','0','1','-1')");
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','0','2','-1')");
 mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','0','3','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','0','4','-1')");
 
 
 ?>

@@ -13,7 +13,8 @@ require_once "dbaccess.php";
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-red.min.css">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-green.min.css">
+<link rel="stylesheet" href="buttons.css">
 
 
 
@@ -25,18 +26,25 @@ require_once "dbaccess.php";
 </head>
 
 
-<br>
-
 
 <!--<button onclick="location='http://goo.gl/forms/2Bk1cmcva4Flvh2j2'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 10px">-->
 <!--    Finish This Study-->
 <!--</button>-->
 
-<button onclick="location='decision_post.php?decision_id=<?php echo $_GET['decision_id']?>&user=<?php echo $_GET['user_id'];?>'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 10px; margin-top: 5px">
-    Next
-</button>
+
 <!--<a href="http://goo.gl/forms/2Bk1cmcva4Flvh2j2">Finish This Study</a>-->
 
+<?php
+
+$result = mysql_query("select * from participate where decision_id = '".$_GET['decision_id']."' and user_id = '".$_GET['user_id']."' ");
+$row = mysql_fetch_array($result);
+$real_user_id = $row['real_user_id'];
+
+$result = mysql_query("select * from user where id = '".$real_user_id."'");
+$row = mysql_fetch_array($result);
+$user_name = $row['user_name'];
+
+?>
 
 
 <style>
@@ -47,14 +55,66 @@ require_once "dbaccess.php";
     }
 
     .axis path,
-    .axis line {
+    .axis line
+    {
         fill: none;
-        stroke: #000;
+        stroke: grey;
         shape-rendering: crispEdges;
     }
+
+    .axis text
+    {
+        fill: grey;
+        stroke: none;
+        shape-rendering: crispEdges;
+    }
+
+
+    text {
+        font-size: 14px;
+        stroke: none;
+        font-family: sans-serif;
+    }
+
 </style>
 
 <body>
+
+
+<p style="padding-left: 10px">
+    <b>
+        Group Page for <?php echo $user_name;?>
+    </b><br>
+    This is an average of everyone's votes, come to a consensus on the best candidate.<br>
+    The Score Variance (red bars) indicate the amount of disagreement.
+    <br>
+    Click on the dots to see others' votes and to change your vote; Hover over voters to see more details.<br>
+</p>
+<svg id="left_side_panel"></svg>
+<svg id="main_panel"></svg>
+<div id = "right_side_div"></div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="padding-left: 400px; margin-bottom: 30px">
+
+    <textarea  name="argument" placeholder="Reasons for your scores..." id="argu_id_argu" onkeyup="saveA()" onkeydown="countWord()" style="width: 500px; height: 100px;"></textarea>
+    <span id="word_counter">0</span>Words<br/>
+</div>
+
+
+
+<div style="width:1000px;float:right;">
+
+    <a href="holdpage_3.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user_id'];?>" class="button button-rounded button-raised" style="margin-left: 750px;  margin-top: 5px; float:left">Next</a>
+
+</div>
+
+
 
 <?php
 $result = mysql_query("select * from decision where id = '".$_GET['decision_id']."'");
@@ -159,6 +219,9 @@ $user_num = $row_count[0];
 
 
 
+<div style="margin-left: 10px; margin-top: 60px">
+</div>
+
 
 <?php
 
@@ -195,7 +258,10 @@ $str = $str."]";
     count = 0;
     function loadXMLDoc()
     {
+
+
         count++;
+        console.log(count);
 
         var xmlhttp;
         if (window.XMLHttpRequest)
@@ -219,6 +285,8 @@ $str = $str."]";
 
 
                 var obj = eval(xmlhttp.responseText);
+
+
 
 
 
@@ -305,33 +373,40 @@ $str = $str."]";
                     }
 
 
-                    var height = 450, width = 750;
+                    var height = 450, width = 850;
                     var r = 10;
 
 
 
 
                     var svg = d3.select('body')
-                        .append('svg')
+                        .select('#main_panel')
                         .attr("height", height)
                         .attr("width", width)
-                        .attr("transform", "translate(100, 100)")
+                    //                       .style("margin-left", "300px")
+//                        .attr("transform", "translate(100, 0)")
                         ;
 
                     svg.append("text")
-                        .text("not suitable")
+                        .text("Not suitable")
                         .attr("transform", "translate(160, 50)");
 
                     svg.append("text")
-                        .text("suitable")
+                        .text("Suitable")
                         .style("text-anchor", "end")
                         .attr("transform", "translate(560, 50)");
+
+                    svg.append("text")
+                        .text("Candidates")
+                        .attr("transform", "translate(733, 50)");
+
+
 
                     var g = svg.append('g')
                         .attr("height", height)
                         .attr("width", width);
 
-                    var data1 = [{rect:0, name:"Overall"},{rect:1, name:"Academic"},{rect:2, name:"Extra Curricular"},{rect:3, name:"Recommondation Letter"}];
+                    var data1 = [{rect:0, name:"Overall"},{rect:1, name:"Academic"},{rect:2, name:"Extracurricular"},{rect:3, name:"Recommendation Letter"},{rect:4, name:"Fit"}];
 
 
 
@@ -493,6 +568,7 @@ $str = $str."]";
 
                     var voter_info = <?php echo $str;?>
 
+
                     var refNode = d3.select("#a01").node();
 //revote panel part
                     circle.on("click", function(d){
@@ -561,7 +637,7 @@ $str = $str."]";
                                 return d.x = title_width + padding_x + rect_width / 10 * score_bar[i + 1]; })
                             .attr("cy", function(d, i) { return d.y = padding_y * (+a + 1); })
                             .attr("fill", color[+b - 1])
-                            .attr("opacity", 0.3)
+                            .attr("opacity", 0.5)
                         ;
                         var refNode1_id = str[0] + str[1] + str[2] + str[3] + "1";
                         var refNode1 = d3.select(refNode1_id).node().parentNode.firstChild;
@@ -573,7 +649,8 @@ $str = $str."]";
                                         .attr("stroke-width", "2px")
                                         .attr("stroke", function(d){
                                             return color[+b-1];
-                                        });
+                                        })
+                                        .attr("opacity", 1);
                                 }
                             })
                             .on("mouseout", function(d){
@@ -583,7 +660,9 @@ $str = $str."]";
                                 if(this.id[3] == str[4]){
 
                                     d3.select(this).select("circle")
-                                        .attr("stroke-width", 0);}
+                                        .attr("stroke-width", 0)
+                                        .attr("opacity", 0.5)
+                                    ;}
                             })
                         ;
 
@@ -610,11 +689,8 @@ $str = $str."]";
 
                         if(str[2] != 0){
                             d3.select(str).call(drag);
-
-                            d3.select(str)
-                                .select("circle")
-                                .attr("opacity", 1);
-
+                            // d3.selectAll(str).select("circle")
+                            // .attr("stroke", color[+b - 1]).attr("stroke-width", "2");
                             d3.select(".voter_panel")
                                 .append("circle")
                                 .attr("r", 2)
@@ -673,20 +749,20 @@ $str = $str."]";
                             .attr("height", 20)
                             .attr("width", 50)
                             .attr("stroke-width", 1)
-                            .attr("stroke", "steelblue")
-                            .attr("fill", "steelblue")
+                            .attr("stroke", "grey")
+                            .attr("fill", "grey")
                             .style("filter", "url(#drop-shadow)")
                             .style("border-radius", "100px")
-                            .attr("x", function(d){ return title_width + padding_x + rect_width + padding_x;})
-                            .attr("y", function(d) {return padding_y * candid_num + 30;})
+                            .attr("x", function(d){ return title_width + padding_x + rect_width + padding_x + 60 + 5;})
+                            .attr("y", function(d) {return padding_y * (+a + 1) - 10;})
                             .attr("rx", "3px")
                             .attr("ry", "3px")
                         ;
 
                         button1
                             .append("text")
-                            .attr("x", function(d){ return title_width + padding_x + rect_width + padding_x + 25;})
-                            .attr("y", function(d) {return padding_y * candid_num + 46;})
+                            .attr("x", function(d){ return title_width + padding_x + rect_width + padding_x + 60 + 25 + 5;})
+                            .attr("y", function(d) {return padding_y * (+a + 1) + 6;})
                             .text("Confirm")
                             .style("text-anchor", "middle")
                             .style("font-family", "Sans-serif")
@@ -694,12 +770,12 @@ $str = $str."]";
                             .style("font-size", "15px")
                             .on("mousedown", recover1)
                             .on("mouseover", function(d){
-                                d3.select(this).style("fill", "steelblue");
+                                d3.select(this).style("fill", "grey");
                                 d3.select("#r1").select("rect").attr("fill", "white");
                             })
                             .on("mouseout", function(d){
                                 d3.select(this).style("fill", "white");
-                                d3.select("#r1").select("rect").attr("fill", "steelblue");
+                                d3.select("#r1").select("rect").attr("fill", "grey");
 
                             })
                         ;
@@ -716,8 +792,8 @@ $str = $str."]";
 //                             .attr("height", 20)
 //                             .attr("width", 50)
 //                             .attr("stroke-width", 1)
-//                             .attr("stroke", "steelblue")
-//                             .attr("fill", "steelblue")
+//                             .attr("stroke", "grey")
+//                             .attr("fill", "grey")
 //                             .style("filter", "url(#drop-shadow)")
 //                             .style("border-radius", "100px")
 //                             .attr("x", function(d){ return title_width + padding_x + rect_width + padding_x;})
@@ -737,12 +813,12 @@ $str = $str."]";
 //                             .style("font-size", "15px")
 //                             .on("mousedown", Undo)
 //                             .on("mouseover", function(d){
-//                                 d3.select(this).style("fill", "steelblue");
+//                                 d3.select(this).style("fill", "grey");
 //                                 d3.select("#r2").select("rect").attr("fill", "white");
 //                             })
 //                             .on("mouseout", function(d){
 //                                 d3.select(this).style("fill", "white");
-//                                 d3.select("#r2").select("rect").attr("fill", "steelblue");
+//                                 d3.select("#r2").select("rect").attr("fill", "grey");
 
 //                             })
 //                         ;
@@ -758,20 +834,20 @@ $str = $str."]";
                             .attr("height", 20)
                             .attr("width", 50)
                             .attr("stroke-width", 1)
-                            .attr("stroke", "steelblue")
-                            .attr("fill", "steelblue")
+                            .attr("stroke", "grey")
+                            .attr("fill", "grey")
                             .style("filter", "url(#drop-shadow)")
                             .style("border-radius", "100px")
-                            .attr("x", function(d){ return title_width + padding_x + rect_width + padding_x - 60;})
-                            .attr("y", function(d) {return padding_y * candid_num + 30;})
+                            .attr("x", function(d){ return title_width + padding_x + rect_width + padding_x + 5;})
+                            .attr("y", function(d) {return padding_y * (+a + 1) - 10;})
                             .attr("rx", "3px")
                             .attr("ry", "3px")
                         ;
 
                         button3
                             .append("text")
-                            .attr("x", function(d){ return title_width + padding_x + rect_width + padding_x + 25 - 60;})
-                            .attr("y", function(d) {return padding_y * candid_num + 46;})
+                            .attr("x", function(d){ return title_width + padding_x + rect_width + padding_x + 25 + 5;})
+                            .attr("y", function(d) {return padding_y * (+a + 1) + 6;})
                             .text("Cancel")
                             .style("text-anchor", "middle")
                             .style("font-family", "Sans-serif")
@@ -783,12 +859,12 @@ $str = $str."]";
 
                             })
                             .on("mouseover", function(d){
-                                d3.select(this).style("fill", "steelblue");
+                                d3.select(this).style("fill", "grey");
                                 d3.select("#r3").select("rect").attr("fill", "white");
                             })
                             .on("mouseout", function(d){
                                 d3.select(this).style("fill", "white");
-                                d3.select("#r3").select("rect").attr("fill", "steelblue");
+                                d3.select("#r3").select("rect").attr("fill", "grey");
 
                             })
                         ;
@@ -899,7 +975,6 @@ $str = $str."]";
 
                     var float_height = 15;
 
-//####################################################################################
 
 
                     function dragStart(d){
@@ -970,7 +1045,7 @@ $str = $str."]";
                     window.obj = null;
                     function dragEnd(d) {
                         window.obj = d;
-                        d3.select(this).select("circle").attr("cy", d.y).attr("opacity", 1);
+                        d3.select(this).select("circle").attr("cy", d.y).attr("opacity", 0.5);
 
                         d3.select(this)
                             .select(".voter_name")
@@ -1073,12 +1148,20 @@ $str = $str."]";
                                     return color[this.parentNode.id[2]-1];
                                 });
                             d3.select(this).append("text")
-                                .text("click to see detail")
+                                .text("Click to see detail")
                                 .attr("x", function(d){
                                     return d.x + 15;
                                 })
                                 .attr("y", function(d){
                                     return d.y - 20;
+                                });
+
+                            d3.select(this).append("text")
+                                .text(function(d){
+                                    return candid[d.col-1].candid;})
+                                .style("text-anchor", "end")
+                                .attr("transform", function(d, i){
+                                    return "translate(" + d.x + "," + (d.y + r + 4) + ") rotate(-40)";
                                 });
                         })
                         .on("mouseout", function(d){
@@ -1095,13 +1178,11 @@ $str = $str."]";
 
 
                     /* legend */
-                    var candid = [{candid: "Betsy"}, {candid: "Chris"}, {candid: "Ross"}, {candid: "Sara"}];
+                    var candid = [{candid: "Sam"}, {candid: "Adam"}, {candid: "Jim"}];
                     var legend_height = 15;
                     var legend_padding = 17;
                     var legend = d3.select('body')
-                        .append("svg")
-                        .style("top", "80px")
-                        .style("left", "700px")
+                        .select("#main_panel")
                         .append("g")
                         .selectAll("g")
                         .data(candid)
@@ -1111,7 +1192,7 @@ $str = $str."]";
                         .classed("side_panel", true)
                         .attr("x", 0)
                         .attr("y", function(d, i) {return i * legend_height + 0;})
-                        .attr("transform", "translate(" + legend_padding + "," + legend_padding + ")");
+                        .attr("transform", "translate(" + (title_width + rect_width + 200) + "," + 65 + ")");
 
 
                     legend.append('circle')
@@ -1131,33 +1212,36 @@ $str = $str."]";
 
                     legend
                         .append("image")
-                        .attr('x',function(d){ return -20;})
-                        .attr('y',function(d){ return candid_num * legend_height + legend_padding ;})
+                        .attr('x',function(d){ return -21;})
+                        .attr('y',function(d){ return candid_num * legend_height + legend_padding * 4 ;})
                         .attr('width', 20)
                         .attr('height', 50)
                         .attr("xlink:href","score_variance.png");
 
                     legend
                         .append("text")
-                        .attr("x", 5)
-                        .attr("y", function(d, i){ return candid_num * legend_height + legend_padding + 30;})
+                        .attr("x", 0)
+                        .attr("y", function(d, i){ return candid_num * legend_height + legend_padding * 4 + 30;})
                         .text("Score variance");
-
                     /* checkbox */
-                    var check_box = d3.
-                        select("body")
+                    var check_box = d3
+                        .select("body")
+                        .select("#right_side_div")
+                        .append("div")
                         .selectAll("div")
                         .data(d3.range(0, candid_num))
                         .enter()
                         .append("div")
-                        .classed("checkbox", true)
                         .classed("side_panel", true)
                         .style("position", "absolute")
-                        .style("left", width - 5 +"px")
-                        .style("top", function(d, i) { return (254 + legend_height * i).toString() + "px";})
+                        .style("left", 1032 +"px")
+                        .style("top", function(d, i) {
+                            return  (168 +  legend_height * i).toString() + "px";})
                         .append('input')
-                        .attr('type','checkbox')
+                        .attr("type", "checkbox")
                         .property("checked", true)
+                        .classed("checkbox", true)
+
                         .attr("id", function(d, i) { return "c" + (i + 1).toString()})
                         ;
 
@@ -1212,8 +1296,8 @@ $str = $str."]";
                         .classed("checkbox1", true)
                         .classed("side_panel", true)
                         .style("position", "absolute")
-                        .style("left", (width-4).toString() + "px")
-                        .style("top", function() { return (340 + legend_height * candidate_num).toString() + "px";})
+                        .style("left", (1031).toString() + "px")
+                        .style("top", function() { return (200 + legend_height * candidate_num).toString() + "px";})
                         .append('input')
                         .attr('type','checkbox')
                         .property("checked", false);
@@ -1230,10 +1314,143 @@ $str = $str."]";
                         else{
                             d3.selectAll(".axis").style("visibility", "hidden");
                         }
-                    })
+                    });
 
 
 
+//indivudial page hover
+
+                    var left_padding_x = 140;
+                    var left_padding_y = 20;
+                    var svg1 = d3.select("body")
+                        .select("#left_side_panel")
+                        .attr("width", 300)
+                        .attr("height", height);
+                    svg1
+                        .append("text")
+                        .text("Voters")
+                        .attr("transform", "translate(" + left_padding_x + ", 50)");
+                    var voter_list_all =
+                        svg1
+                            .append("g")
+                            .attr("id", "v0");
+
+                    voter_list_all
+                        .append("rect")
+                        .attr("x", left_padding_x)
+                        .attr("y", function(d, i){
+                            return 63;
+                        })
+                        .attr("height", 20)
+                        .attr("width", 50)
+                        .attr("stroke-width", 1)
+                        .attr("stroke", "grey")
+                        .attr("fill", "grey")
+                        .style("filter", "url(#drop-shadow)")
+                        .style("border-radius", "100px")
+                    ;
+
+                    voter_list_all
+                        .append("text")
+                        .attr("x", function(d){ return  left_padding_x + 25;})
+                        .attr("y", function(d, i) {
+                            return 78;
+                        })
+                        .text(function(d){
+                            return "ALL";
+                        })
+                        .style("text-anchor", "middle")
+                        .style("font-family", "Sans-serif")
+                        .style("fill", "White")
+                        .style("font-size", "15px");
+
+                    var voter_list =
+                            svg1
+                                .append("g")
+                                .selectAll("rect")
+                                .data(voter_info)
+                                .enter()
+                                .append("g")
+                                .attr("id", function(d, i){
+                                    return "v" + (i + 1).toString();
+                                })
+                        ;
+                    voter_list
+                        .append("rect")
+                        .attr("x", left_padding_x)
+                        .attr("y", function(d, i){
+                            return 63 + left_padding_y * (i + 1);
+                        })
+                        .attr("height", left_padding_y)
+                        .attr("width", 50)
+                        .attr("stroke-width", 1)
+                        .attr("stroke", "grey")
+                        .attr("fill", "white")
+                        .style("filter", "url(#drop-shadow)")
+                        .style("border-radius", "100px")
+                    ;
+                    voter_list
+                        .append("text")
+                        .attr("x", function(d){ return  left_padding_x + 25;})
+                        .attr("y", function(d, i) {
+                            return 78 + left_padding_y * (i + 1);
+                        })
+                        .text(function(d){
+                            return d.name;
+                        })
+                        .style("text-anchor", "middle")
+                        .style("font-family", "Sans-serif")
+                        .style("fill", "grey")
+                        .style("font-size", "15px")
+                        .on("mouseover", function(d){
+                            d3.select(this).style("fill", "white");
+                            var id = "#v" + d.code.toString();
+                            d3.selectAll(id).select("rect").style("fill", "grey");
+
+                            d3.select("#v0").select("rect").style("fill", "white");
+                            d3.select("#v0").select("text").style("fill", "grey");
+
+                            d3.selectAll(".handler").style("visibility", "hidden");
+                            for(var i = 0; i < criteria_num; i++)
+                                for(var j = 1; j <= candidate_num; j++)
+                                {
+                                    g.
+                                        append("circle")
+                                        .attr("class", "indivudial_vote")
+                                        .attr("id", "v" + i.toString() + j.toString())
+                                        .attr("r", r)
+                                        .attr("cx", function(){
+                                            return title_width + padding_x + rect_width / 10 * (score[i][j][d.code]);
+                                        })
+                                        .attr("cy", padding_y * (i + 1))
+                                        .attr("fill", function(d) {return color[j - 1];});
+
+                                }
+                        })
+                        .on("mouseout", function(d){
+                            d3.selectAll(".indivudial_vote").remove();
+
+                            d3.select(this).style("fill", "grey");
+                            var id = "#v" + d.code.toString();
+                            d3.selectAll(id).select("rect").style("fill", "White");
+
+                            d3.select("#v0").select("rect").style("fill", "grey");
+                            d3.select("#v0").select("text").style("fill", "white");
+
+                            d3.selectAll(".handler").style("visibility", "visible");
+
+                        })
+                    ;
+
+
+
+
+
+
+
+
+
+//end of sijia's part
 
 
 
@@ -1353,6 +1570,9 @@ $str = $str."]";
 
 
 
+
+                console.log("requested");
+
             }
 
 
@@ -1374,7 +1594,7 @@ $str = $str."]";
 
 
 //    loadXMLDoc();
-    var t=setInterval("loadXMLDoc()",500);
+    var t=setInterval("loadXMLDoc()",2000);
 
 
     </script>
@@ -1505,6 +1725,52 @@ $str = $str."]";
             }
         });
     }
+
+
+    function saveA(){
+
+        var argu_id_argu=document.getElementById("argu_id_argu").value;
+
+        arguSave = argu_id_argu.replace(/\n/g, "<br/>");
+        arguSave = arguSave.replace(/'/g, "pp");
+        arguSave = arguSave.replace(/"/g, "ll");
+
+
+
+        var jsonString = JSON.stringify(arguSave);
+
+//        console.log(jsonString);
+
+        $.ajax({
+            url: "save_argu.php?decision_id=<?php echo $_GET['decision_id'];?>&user_id=1",
+            type: "POST",
+            data:{trans_data:jsonString},
+            traditional: true,
+            error: function(){
+                alert('Error');
+            },
+            success: function(data,status){
+//               location.reload(true);
+            }
+        });
+    }
+
+
+    function countWord(){
+
+
+        s = document.getElementById("argu_id_argu").value;
+        s = s.replace(/(^\s*)|(\s*$)/gi,"");
+        s = s.replace(/[ ]{2,}/gi," ");
+        s = s.replace(/\n /,"\n");
+        var numm = s.split(' ').length;
+
+        document.getElementById("word_counter").innerText = numm;
+
+    }
+
+
+
 
 
 </script>

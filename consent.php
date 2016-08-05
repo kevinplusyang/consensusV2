@@ -140,6 +140,32 @@ $email = $row['email'];
                 </button>
 
 
+                <form action="holdpage_1.php" method="post">
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                        <input type="radio" id="option-1" class="mdl-radio__button" name="option1" value="1" checked>
+                        <span class="mdl-radio__label">First</span>
+                    </label>
+
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                        <input type="radio" id="option-2" class="mdl-radio__button" name="option1" value="2">
+                        <span class="mdl-radio__label">First</span>
+                    </label>
+
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                        <input type="radio" id="option-3" class="mdl-radio__button" name="option2" value="3" checked>
+                        <span class="mdl-radio__label">Second</span>
+                    </label>
+
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+                        <input type="radio" id="option-4" class="mdl-radio__button" name="option2" value="4">
+                        <span class="mdl-radio__label">Second</span>
+                    </label>
+
+                    <input type="submit">
+                </form>
+
+
+
 
 
 
@@ -164,14 +190,7 @@ $email = $row['email'];
 
             </div>
         </div>
-<!--        <footer class="demo-footer mdl-mini-footer">-->
-<!--            <div class="mdl-mini-footer--left-section">-->
-<!--                <ul class="mdl-mini-footer--link-list">-->
-<!--                    <li><a href="#">ProtoLab</a></li>-->
-<!---->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </footer>-->
+
     </main>
 </div>
 

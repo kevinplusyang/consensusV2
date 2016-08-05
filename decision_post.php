@@ -8,7 +8,8 @@ require_once "dbaccess.php";
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-red.min.css">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-green.min.css">
+<link rel="stylesheet" href="buttons.css">
 
 
 
@@ -28,15 +29,33 @@ require_once "dbaccess.php";
 </head>
 
 
+
 <style>
 
+
     .axis path,
-    .axis line {
+    .axis line
+    {
         fill: none;
-        stroke: #000;
+        stroke: grey;
         shape-rendering: crispEdges;
     }
+
+    .axis text
+    {
+        fill: grey;
+        stroke: none;
+        shape-rendering: crispEdges;
+    }
+
+
+    text {
+        font-size: 14px;
+        stroke: none;
+        font-family: sans-serif;
+    }
 </style>
+
 
 <body>
 
@@ -53,11 +72,25 @@ $user_name = $row['user_name'];
 
 ?>
 
+<p style="padding: 10px;">
+    <b>Individual Voting page for <?php echo $user_name;?></b><br>
+    Rank the Candidates<br>
+    Click and drag the colored circles onto the line
+    <br><br/>
+</p>
+<svg id="left_side_panel"></svg>
+<svg id="main_panel"></svg>
+<div></div>
+<div style="width:1000px;float:right;">
+
+    <a href="https://goo.gl/forms/uCr5fzATWJW1AGKo2" class="button button-rounded button-raised" style="margin-left: 750px;  margin-top: 5px; float:left">Next</a>
+
+</div>
+
+
 <br>
 
-<button onclick="location='http://goo.gl/forms/2Bk1cmcva4Flvh2j2'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 10px">
-    Finish This Study
-</button>
+
 
 
 <div style="margin-left: 10px; margin-top: 60px">
@@ -162,6 +195,8 @@ $user_name = $row['user_name'];
 
 
 
+
+
                 //sijia's part ********************************************************************************************************
 
                 var criteria_id = 0;
@@ -215,34 +250,40 @@ $user_name = $row['user_name'];
                         calculateTable();
 
 
-                        var height = 450, width = 750;
+                        var height = 450, width = 1050;
 
                         var r = 10;
 
 
 
                         var svg = d3.select('body')
-                            .append('svg')
+                            .select('#main_panel')
                             .attr("height", height)
                             .attr("width", width)
-                            .attr("transform", "translate(100, 100)")
+                        //                           .style("margin-left", "300px")
+//                            .attr("transform", "translate(100, 0)")
                             ;
 
                         svg.append("text")
-                            .text("not suitable")
+                            .text("Not suitable")
                             .attr("transform", "translate(160, 50)");
 
                         svg.append("text")
-                            .text("suitable")
+                            .text("Suitable")
                             .style("text-anchor", "end")
                             .attr("transform", "translate(560, 50)");
+
+                        svg.append("text")
+                            .text("Candidates")
+                            .attr("transform", "translate(754, 50)");
+
 
 
                         var g = svg.append('g')
                             .attr("height", height)
                             .attr("width", width);
 
-                        var data1 = [{rect:0, name:"Overall"},{rect:1, name:"Academic"},{rect:2, name:"Extra Curricular"},{rect:3, name:"Recommondation Letter"}];
+                        var data1 = [{rect:0, name:"Overall"},{rect:1, name:"Academic"},{rect:2, name:"Extracurricular"},{rect:3, name:"Recommendation Letter"},{rect:4, name:"Fit"}];
 
                         var title_width = 150;
                         var rect_height = 2, rect_width=400;
@@ -290,6 +331,18 @@ $user_name = $row['user_name'];
                                     return r;
                                 return 0;
                             })
+                        ;
+
+
+                        rect
+                            .append("rect")
+                            .attr("x", title_width + padding_x)
+                            .attr("y", function(d, i){
+                                return (d.rect + 1) * padding_y - padding_y / 2;
+                            })
+                            .attr("width", rect_width)
+                            .attr("height", padding_y)
+                            .attr("opacity", 0)
                         ;
 
                         var color = new Array("green", "blue", "orange", "BlueViolet",  "brown", "Chartreuse", "Cyan");
@@ -367,6 +420,7 @@ $user_name = $row['user_name'];
 
                         circle
                             .append("text")
+                            .attr("class", "voter_score")
                             .attr("x", function(d){
 
                                 if(d.score == -1){
@@ -380,6 +434,8 @@ $user_name = $row['user_name'];
                             .style("text-anchor", "middle")
                             .style("font-size", "14px")
                             .text('');
+
+
 
 
                         var defs = svg.append("defs");
@@ -461,6 +517,16 @@ $user_name = $row['user_name'];
                                             return color[this.parentNode.id[2]-1];
                                         });
                                 }
+
+                                d3.select(this.parentNode).append("text")
+                                    .attr("class", "voter_name")
+                                    .text(function(d){
+                                        return candid[d.col-1].candid;})
+                                    .style("text-anchor", "end")
+                                    .attr("transform", function(d, i){
+                                        return "translate(" + d.x + "," + (d.y + r + 4) + ") rotate(-40)";
+                                    });
+
                             })
                             .on("mouseout", function(d){
 
@@ -469,10 +535,39 @@ $user_name = $row['user_name'];
 
                                 d3.select(this)
                                     .attr("stroke-width", 0);
+
+                                d3.selectAll(".voter_name").remove();
+
                             })
                         ;
 
+                        d3.selectAll(".bar").on("mouseover", function(d){
+                                var row = this.id[1];
+                                for(var i = 1; i <= candidate_num; i++){
+
+                                    var circle_id = "#a" + row.toString() + i.toString();
+                                    d3.select(circle_id).append("text")
+                                        .attr("class", "voter_name")
+                                        .text(function(d) {return candid[i-1].candid;})
+                                        .style("text-anchor", "end")
+                                        .attr("transform", function(d, i){
+
+                                            return "translate(" + d.x + "," + (d.y + r + 4) + ") rotate(-40)";
+                                        });
+                                }
+
+                                //                        console.log(d);
+                            })
+                            .on("mouseout", function(d){
+                                d3.selectAll(".voter_name").remove();
+                            });
+
                         function dragStart(d) {
+                            d3.selectAll(".bar").on("mouseover", null);
+                            d3.selectAll(".handler").on("mouseover", null);
+                            d3.selectAll(".voter_name").remove();
+
+
 
                             d3.event.sourceEvent.preventDefault();
 
@@ -494,24 +589,52 @@ $user_name = $row['user_name'];
                                 });
 
                             d3.select(this)
-                                .select("text")
+                                .select(".voter_score")
                                 .text(function(d){
                                     var x = d3.round((d.x - title_width - padding_x)/rect_width * 10, 1);
-                                    x = Math.min(x, 10);
                                     x = Math.max(0, x);
+                                    if(x > 10) x = "-";
                                     return x;
 
                                 });
+
+
+//text: voter_name
+                            d3.select(this)
+                                .append("text")
+                                .attr("class", "tmp_name")
+                                .text(function(d) {
+                                    return candid[d.col - 1].candid;})
+                                .style("text-anchor", "end")
+                                .attr("transform", function(d, i){
+                                    return "translate(" + d.x + "," + (d.y + r + 4) + ") rotate(-40)";
+                                })
+                            ;
+
 
                         }
 
 
                         function dragMove(d) {
+
                             d3.select(this)
                                 .select("circle")
                                 .attr("opacity", 0.4)
-                                .attr("cx", d.x = Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x)))
+                                .attr("cx",
+                                    //                          d.x = Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x)))
+                                    d.x = Math.max(title_width + padding_x, d3.event.x))
                                 .attr("cy", d.y - float_height);
+
+                            d3.select(this)
+                                .select(".tmp_name")
+                                .attr("transform", function(d){
+                                    //    d.x = Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x));
+                                    d.x = Math.max(title_width + padding_x, d3.event.x);
+
+                                    return "translate(" + d.x + "," + (d.y + r + 4) + ") rotate(-40)";
+                                })
+                                .text(function(d) {
+                                    return candid[d.col - 1].candid;});
 
                             d3.select(this)
                                 .select(".float_path")
@@ -520,20 +643,24 @@ $user_name = $row['user_name'];
                                 });
 
                             d3.select(this)
-                                .select("text")
+                                .select(".voter_score")
                                 .text(function(d){
                                     var x = d3.round((d3.event.x - title_width - padding_x)/rect_width * 10, 1);
-                                    x = Math.min(x, 10);
                                     x = Math.max(0, x);
+                                    if(x > 10){
+                                        x = "-";}
                                     return x;
 
                                 })
-                                .attr("x", Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x)) );
+                                .attr("x",
+                                    Math.max(title_width + padding_x, d3.event.x) );
+
+//                                    Math.max(title_width + padding_x, Math.min(title_width + padding_x + rect_width, d3.event.x)) );
 
 
                             var score_num = d3.round((d.x - title_width - padding_x)/rect_width * 10, 10);
+                            if(score_num > 10) score_num = 10;
                             scores[d.row][d.col] = score_num;
-
 
                             calculateTable();
 
@@ -554,8 +681,8 @@ $user_name = $row['user_name'];
                         }
 
                         function dragEnd(d) {
+                            d3.select(".tmp_name").remove();
 
-                            save();
 
                             d3.select(this)
                                 .select('circle')
@@ -573,8 +700,72 @@ $user_name = $row['user_name'];
 
 
 
+                            var score_num = d3.round((d.x - title_width - padding_x)/rect_width * 10, 10);
+                            if(score_num > 10) score_num = -1;
+                            scores[d.row][d.col] = score_num;
+
+                            for(var i = 1; i <= criteria_num; i++){
+                                if(scores[i][d.col] == -1) break;
+                            }
+                            if(i == criteria_num){
+                                calculateTable();
+                            }
 
 
+
+//                        tableChanged(d.row, d.col, score_num);
+
+
+                            var overall = scores[0][d.col];
+                            var overall_id = "#a0" + d.col.toString();
+                            d3.select(overall_id).select("circle").attr("cx", function(d) {
+                                d.x = title_width + padding_x + overall * rect_width /10;
+                                return d.x;}
+
+                            );
+
+
+                            save();
+
+//recover bar name
+                            d3.selectAll(".bar").on("mouseover", function(d){
+                                var row = this.id[1];
+                                for(var i = 1; i <= candidate_num; i++){
+
+                                    var circle_id = "#a" + row.toString() + i.toString();
+                                    d3.select(circle_id).append("text")
+                                        .attr("class", "voter_name")
+                                        .text(function(d) {return candid[i-1].candid;})
+                                        .style("text-anchor", "end")
+                                        .attr("transform", function(d, i){
+
+                                            return "translate(" + d.x + "," + (d.y + r + 4) + ") rotate(-40)";
+                                        });
+                                }
+
+                                //                        console.log(d);
+                            });
+
+                            d3.selectAll(".handler").select("circle")
+                                .on("mouseover", function(d){
+                                    if(this.parentNode.id[1] != 0){
+                                        d3.select(this)
+                                            .attr("stroke-width", "2px")
+                                            .attr("stroke", function(d){
+                                                return color[this.parentNode.id[2]-1];
+                                            });
+                                    }
+
+                                    d3.select(this.parentNode).append("text")
+                                        .attr("class", "voter_name")
+                                        .text(function(d){
+                                            return candid[d.col-1].candid;})
+                                        .style("text-anchor", "end")
+                                        .attr("transform", function(d, i){
+                                            return "translate(" + d.x + "," + (d.y + r + 4) + ") rotate(-40)";
+                                        });
+
+                                });
 
                         }
 
@@ -584,13 +775,11 @@ $user_name = $row['user_name'];
 
 
                         /* legend */
-                        var candid = [{candid: "Betsy"}, {candid: "Chris"}, {candid: "Ross"}, {candid: "Sara"}];
+                        var candid = [{candid: "Sam"}, {candid: "Adam"}, {candid: "Jim"}];
                         var legend_height = 15;
                         var legend_padding = 17;
                         var legend = d3.select('body')
-                            .append("svg")
-                            .style("top", "80px")
-                            .style("left", width + "px")
+                            .select("#main_panel")
                             .append("g")
                             .selectAll("g")
                             .data(candid)
@@ -599,7 +788,8 @@ $user_name = $row['user_name'];
                             .attr('class', 'legend')
                             .attr("x", 0)
                             .attr("y", function(d, i) {return i * legend_height + 0;})
-                            .attr("transform", "translate(" + legend_padding + "," + legend_padding + ")");
+                            .attr("transform", "translate(" + (title_width + rect_width + 200) + "," + 65 + ")")
+                            ;
 
                         legend.append('circle')
                             .attr('cx', 10)
@@ -619,18 +809,18 @@ $user_name = $row['user_name'];
                         /* checkbox */
                         var check_box = d3
                             .select("body")
-                            .append("div")
+                            .select("div")
                             .classed("checkbox", true)
                             .style("position", "absolute")
-                            .style("left", width + legend_padding + "px")
-                            .style("top", function() { return 300 + "px";})
+                            .style("left", 1077  + "px")
+                            .style("top", function() { return 260 + "px";})
                             .append('input')
                             .attr('type','checkbox')
                             .property("checked", false);
 
                         d3.select(".checkbox")
                             .append("text")
-                            .text("Ticks and Numbers");
+                            .text("Scale");
 
 
 //axis
@@ -674,8 +864,8 @@ $user_name = $row['user_name'];
 
 
 
-                        for(var m = 1; m <4; m++ ){
-                            for(var n = 1; n <4; n++){
+                        for(var m = 1; m <criteria_num+1; m++ ){
+                            for(var n = 1; n <candidate_num+1; n++){
 
                                 scores2[m][n] = scores[m][n];
                             }
@@ -691,7 +881,7 @@ $user_name = $row['user_name'];
 
 
                     for(var m = 1; m <criteria_num+1; m++ ){
-                        for(var n = 1; n <candidate_num; n++){
+                        for(var n = 1; n <candidate_num+1; n++){
 
                             if(scores2[m][n] == scores[m][n]){
 
@@ -716,7 +906,7 @@ $user_name = $row['user_name'];
 
 
                 for(var m = 1; m <criteria_num+1; m++ ){
-                    for(var n = 1; n <candidate_num; n++){
+                    for(var n = 1; n <candidate_num+1; n++){
 
                         if(scores2[m][n] == scores[m][n]){
 
@@ -774,31 +964,55 @@ $user_name = $row['user_name'];
         var padding_x = 10, padding_y = 70;
         var score1 = scores[criteria_id][candidate_id];
         var score2 = scores[0][candidate_id];
+        console.log(score2);
         var id1 = "#a" + criteria_id.toString() + candidate_id.toString();
         var id2 = "#a0" + candidate_id.toString();
 
         d3.select(id1).select("circle")
-            .attr("cx", function(d) {return d.x = title_width + padding_x + rect_width / 10 * score1; })
+            .attr("cx", function(d) {
+                if(score1 == -1){
+                    return d.x = 550 + d.col * 30;
+                }
+                else{
+                    return d.x = title_width + padding_x + rect_width / 10 * score1;
+                }
+
+            })
 
         d3.select(id2).select("circle")
-            .attr("cx", function(d) {return d.x = title_width + padding_x + rect_width / 10 * score2; })
+            .attr("cx", function(d) {
+                if(score2 == -1){
+                    return d.x = 550 + d.col * 30;
+                }
+                else{
+                    return d.x = title_width + padding_x + rect_width / 10 * score2;
+                }
+            })
 
     }
-
 
     function calculateTable() {
 
         var i = 0;
         var j = 0;
         var temp = 0.00;
+        var flag = 0;
 
         for(i = 1; i <=candidate_num; i++){
             temp = 0;
+            flag = 0;
             for(j = 1; j <=criteria_num; j++){
                 temp = temp + parseFloat(scores[j][i]);
+                if(scores[j][i]<0){
+                    flag = 1;
+                }
 
             }
-            scores[0][i] = temp/criteria_num;
+            if(flag == 1){
+
+            }else {
+                scores[0][i] = temp/criteria_num;
+            }
 
         }
 
