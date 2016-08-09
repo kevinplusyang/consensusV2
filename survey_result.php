@@ -124,6 +124,15 @@ while($row = mysql_fetch_array($result)){
 }
 
 
+
+$result = mysql_query("select * from reason");
+
+while($row = mysql_fetch_array($result)){
+    echo $row['reason'];
+    echo '<br>';
+    echo '<br>';
+}
+
 ?>
 
 

@@ -10,17 +10,7 @@ require_once "dbaccess.php";
     <title>Consensus</title>
 </head>
 <body>
-User ID:
-<?php echo $_SESSION['user_id'];?>
-<br>
 
-User Name:
-<?php echo $_SESSION['username'];?>
-
-
-<br>
-
-<hr>
 
 <?php
 $result = mysql_query("select * from decision;");
@@ -28,8 +18,7 @@ while($row = mysql_fetch_array($result)) {
     $decision_id = $row['id'];
     ?>
 
-    ======================================================
-    <br>
+
     Pilot Study ID: <a href="overall.php?decision_id=<?php echo $decision_id;?>"><?php echo  $decision_id?></a>
 
     <br>
@@ -54,31 +43,6 @@ while($row = mysql_fetch_array($result)) {
 
 ?>
 
-<hr>
-Create a New Study:
-
-<form action="create_study.php" method="post">
-
-   <input type="text" placeholder="Study Name" name="studyname">
-    <br>
-
-    <input type="text" placeholder="Description" name="description">
-    <br>
-
-    <select name="group_type">
-        <option value="0">
-            Experimental Group
-        </option>
-        <option value="1">
-            Control Group
-        </option>
-    </select>
-
-
-
-    <button type="submit">Creat Pilot Study</button>
-</form>
-
 
 <hr>
 Add a New User:
@@ -95,24 +59,45 @@ Add a New User:
         <input class="form-control" placeholder="Password" name="password" type="password" value="">
 
     <br>
-    Select a Study:
+    <br>
+    How many fake users will play with this participant?
     <select name="participate">
-        <?php
-        $result = mysql_query("select * from decision");
-        while ($row = mysql_fetch_array($result)){
-            $decision_name = $row['name'];
-            $decision_id = $row['id'];
-            ?>
-            <option value="<?php echo $decision_id;?>">
-                <?php
-                echo $decision_name;
-                ?>
-            </option>
-            <?php
-        }
-        ?>
+        <option value="3">
+            3
+        </option>
+        <option value="6">
+            6
+        </option>
+        <option value="9">
+            9
+        </option>
+        <option value="12">
+            12
+        </option>
+        <option value="15">
+            15
+        </option>
+        <option value="18">
+            18
+        </option>
     </select>
     <br>
+    <br>
+
+    What is the experiment type?
+    <select name="type">
+        <option value="0">
+            Visualization with Variance Bar
+        </option>
+        <option value="1">
+            Visualization without Variance Bar
+        </option>
+        <option value="2">
+            None Visualization
+        </option>
+    </select>
+    <br>
+<br>
 
     <button type="submit">Register</button>
 </form>

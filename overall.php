@@ -209,7 +209,23 @@ $user_num = $row_count[0];
         }
     }
 
+
+    argu = new Array();
+    for(var k=0;k<user_num+1;k++){    //一维长度为i,i为变量，可以根据实际情况改变
+
+        argu[k]="NULL";  //声明二维，每一个一维数组里面的一个元素都是一个数组；
+
+
+    }
+
+
+
 </script>
+
+
+
+
+
 
 
 <!-- <div id="myDiv"><h2>使用 AJAX 修改该文本内容</h2></div>
@@ -296,6 +312,7 @@ $str = $str."]";
                 var candidate_id = 0;
                 var user_id = 0;
                 var score_data = 0.00;
+                var argu_data = 'NO DATA';
 
 
                 for(var i = 0; i < obj.length; i++){
@@ -303,10 +320,19 @@ $str = $str."]";
                     candidate_id = obj[i][4];
                     score_data = obj[i][5];
                     user_id = obj[i][2];
+                    argu_data = obj[i][6];
 
                     score[criteria_id][candidate_id][user_id] = score_data;
 
+
+                    if(criteria_id == 0 && candidate_id ==1){
+
+                        argu[user_id] = argu_data;
+                    }
+
                 }
+
+                console.log(argu);
 
                 if(count == 1){
                     calculateAvg();

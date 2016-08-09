@@ -25,8 +25,8 @@ echo $_POST['email'];
 echo $_POST['password'];
 echo $_POST['participate'];
 
-$user_name = "Edwin";
-$user_email = "edwin@ucsd.edu";
+$user_name = "Yuan";
+$user_email = "yuan@ucsd.edu";
 $password = "1234";
 $participant_num = 5;
 

@@ -24,6 +24,7 @@ echo $_POST['username'];
 echo $_POST['email'];
 echo $_POST['password'];
 echo $_POST['participate'];
+echo $_POST['type'];
 
 
 mysql_query("insert into user values ('','".$_POST['username']."','".$_POST['email']."','".md5($_POST['password'])."') ");

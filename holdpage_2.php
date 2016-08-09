@@ -120,7 +120,7 @@ $user_name = $row['user_name'];
 
                 if($type==0){
                     ?>
-                    <button onclick="location='overall.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user_id'];?>'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    <button onclick="location='overallll.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user_id'];?>'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                         Next
                     </button>
                     <?php
