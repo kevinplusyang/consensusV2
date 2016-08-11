@@ -109,9 +109,9 @@ $email = $row['email'];
                 </div>
                 <h3>Survey</h3>
 
-<!--                <p>-->
-<!--                    Please full fill this survey and press submit.-->
-<!--                </p>-->
+                <!--                <p>-->
+                <!--                    Please full fill this survey and press submit.-->
+                <!--                </p>-->
 
 
 
@@ -119,100 +119,15 @@ $email = $row['email'];
 
 
                 <form action="survey_process.php?decision_id=<?php echo $_GET['decision_id'];?>&user_id=<?php echo $_GET['user_id']?>" method="post">
-                    1. How confident are you in your vote?<br>
-                    &nbsp&nbsp&nbsp <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                        <input type="radio" id="option-1" class="mdl-radio__button" name="q1" value="1">
-                        <span class="mdl-radio__label">1</span>
-                    </label>
-                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                        <input type="radio" id="option-2" class="mdl-radio__button" name="q1" value="2">
-                        <span class="mdl-radio__label">2</span>
-                    </label>
-                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-                        <input type="radio" id="option-3" class="mdl-radio__button" name="q1" value="3">
-                        <span class="mdl-radio__label">3</span>
-                    </label>
-
-                    &nbsp&nbsp&nbsp
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
-                        <input type="radio" id="option-4" class="mdl-radio__button" name="q1" value="4">
-                        <span class="mdl-radio__label">4</span>
-                    </label>
-                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-5">
-                        <input type="radio" id="option-5" class="mdl-radio__button" name="q1" value="5">
-                        <span class="mdl-radio__label">5</span>
-                    </label>
-
-                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-6">
-                        <input type="radio" id="option-6" class="mdl-radio__button" name="q1" value="6">
-                        <span class="mdl-radio__label">6</span>
-                    </label>
 
 
-                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-7">
-                        <input type="radio" id="option-7" class="mdl-radio__button" name="q1" value="7">
-                        <span class="mdl-radio__label">7</span>
-                    </label>
+                    Considering the information above, answer the following questions.</br>
+                    1. Rank the candidates from best to worst as your committee sees them (1 being the best and 3 being the worst)</br>
 
 
-                    <br>
-                    <br>
+                    <select>
 
-
-
-                    2. How willing are you to change your vote?<br>
-                    &nbsp&nbsp&nbsp <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-8">
-                        <input type="radio" id="option-8" class="mdl-radio__button" name="q2" value="1">
-                        <span class="mdl-radio__label">1</span>
-                    </label>
-                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-9">
-                        <input type="radio" id="option-9" class="mdl-radio__button" name="q2" value="2">
-                        <span class="mdl-radio__label">2</span>
-                    </label>
-                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-10">
-                        <input type="radio" id="option-10" class="mdl-radio__button" name="q2" value="3">
-                        <span class="mdl-radio__label">3</span>
-                    </label>
-
-                     &nbsp&nbsp&nbsp
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-11">
-                        <input type="radio" id="option-11" class="mdl-radio__button" name="q2" value="4">
-                        <span class="mdl-radio__label">4</span>
-                    </label>
-                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-12">
-                        <input type="radio" id="option-12" class="mdl-radio__button" name="q2" value="5">
-                        <span class="mdl-radio__label">5</span>
-                    </label>
-
-
-                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-13">
-                        <input type="radio" id="option-13" class="mdl-radio__button" name="q2" value="6">
-                        <span class="mdl-radio__label">6</span>
-                    </label>
-
-                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-14">
-                        <input type="radio" id="option-14" class="mdl-radio__button" name="q2" value="7">
-                        <span class="mdl-radio__label">7</span>
-                    </label>
-
-
-                    <br>
-                    <br>
-
-
-
+                    </select>
 
 
                     <input type="submit" value="Next" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="regBtn">

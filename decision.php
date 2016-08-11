@@ -87,7 +87,7 @@ $user_name = $row['user_name'];
 <br>
 <br>
 <br>
-<div style="padding-left: 400px; margin-bottom: 30px">
+<div style="padding-left: 435px; margin-top: 200px; margin-bottom: 30px">
 
     <textarea  name="argument" placeholder="Reasons for your scores..." id="argu_id_argu" onkeyup="saveA()" onkeydown="countWord()" style="width: 500px; height: 100px;"></textarea>
     <span id="word_counter">0</span>Words<br/>
@@ -95,7 +95,7 @@ $user_name = $row['user_name'];
 
 
 <div style="width:1200px;float:left">
-    <a href="holdpage_1.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user'];?>" class="button button-rounded button-raised" style="margin-left: 1050px;  margin-top: 5px; float:left">Next</a>
+    <a href="holdpage_1.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user'];?>" class="button button-rounded button-raised" style="margin-left: 1050px;  margin-top: 0px; float:left">Next</a>
 
 </div>
 
@@ -270,6 +270,8 @@ $user_num = $row['user_num'];
                             .select('#main_panel')
                             .attr("height", height)
                             .attr("width", width)
+                            .style("position", "absolute")
+
                         //                           .style("margin-left", "300px")
 //                            .attr("transform", "translate(100, 0)")
                             ;
@@ -1039,6 +1041,7 @@ $user_num = $row['user_num'];
 
             }
             if(flag == 1){
+                scores[0][i] = -1;
 
             }else {
                 scores[0][i] = temp/criteria_num;

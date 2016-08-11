@@ -106,22 +106,11 @@ $user_id = $_GET['user_id'];
 
 
 
-                <?php
-                if($group_type == 0){
-                    ?>
+
                     <button onclick="location='decision.php?decision_id=<?php echo $decision_id;?>&user=<?php echo $user_id;?>'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                         Start Pilot
                     </button>
-                    <?php
-                }else{
-                    ?>
-                    <button onclick="location='decisionn.php?decision_id=<?php echo $decision_id;?>&user=<?php echo $user_id;?>'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                        Start Pilot
-                    </button>
-                    <?php
-                }
 
-                ?>
         </div>
 <!--        <footer class="demo-footer mdl-mini-footer">-->
 <!--            <div class="mdl-mini-footer--left-section">-->

@@ -733,7 +733,10 @@ $str = $str."]";
 
         for(var i = 0; i <= 4; i++){
             for(var j = 1; j <=3; j++){
+                console.log("++++++++");
+                console.log(i);
 
+                console.log(j);
 
                 document.getElementById(i+""+j).innerHTML = overall[i][j].toFixed(2);
 

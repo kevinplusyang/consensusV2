@@ -12,3 +12,9 @@ mysql_query("truncate score_backup;");
 mysql_query("truncate user;");
 mysql_query("truncate survey;");
 mysql_query("truncate reason;");
+
+mysql_query("truncate score_pool_sam;");
+mysql_query("truncate score_pool_adam;");
+mysql_query("truncate score_pool_jim;");
+
+mysql_query("truncate name;");

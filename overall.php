@@ -20,7 +20,7 @@ require_once "dbaccess.php";
 
 <html lang="en">
 <head>
-<link href="style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Consensus</title>
 </head>
@@ -277,7 +277,7 @@ $str = $str."]";
 
 
         count++;
-        console.log(count);
+        //    console.log(count);
 
         var xmlhttp;
         if (window.XMLHttpRequest)
@@ -332,7 +332,8 @@ $str = $str."]";
 
                 }
 
-                console.log(argu);
+
+                //     console.log(argu);
 
                 if(count == 1){
                     calculateAvg();
@@ -424,7 +425,7 @@ $str = $str."]";
 
                     svg.append("text")
                         .text("Candidates")
-                        .attr("transform", "translate(733, 50)");
+                        .attr("transform", "translate(600, 50)");
 
 
 
@@ -1218,7 +1219,7 @@ $str = $str."]";
                         .classed("side_panel", true)
                         .attr("x", 0)
                         .attr("y", function(d, i) {return i * legend_height + 0;})
-                        .attr("transform", "translate(" + (title_width + rect_width + 200) + "," + 65 + ")");
+                        .attr("transform", "translate(" + (title_width + rect_width + 50) + "," + 65 + ")");
 
 
                     legend.append('circle')
@@ -1238,7 +1239,7 @@ $str = $str."]";
 
                     legend
                         .append("image")
-                        .attr('x',function(d){ return -21;})
+                        .attr('x',function(d){ return -17;})
                         .attr('y',function(d){ return candid_num * legend_height + legend_padding * 4 ;})
                         .attr('width', 20)
                         .attr('height', 50)
@@ -1260,7 +1261,7 @@ $str = $str."]";
                         .append("div")
                         .classed("side_panel", true)
                         .style("position", "absolute")
-                        .style("left", 1032 +"px")
+                        .style("left", 885 +"px")
                         .style("top", function(d, i) {
                             return  (168 +  legend_height * i).toString() + "px";})
                         .append('input')
@@ -1322,7 +1323,7 @@ $str = $str."]";
                         .classed("checkbox1", true)
                         .classed("side_panel", true)
                         .style("position", "absolute")
-                        .style("left", (1031).toString() + "px")
+                        .style("left", (885).toString() + "px")
                         .style("top", function() { return (200 + legend_height * candidate_num).toString() + "px";})
                         .append('input')
                         .attr('type','checkbox')
@@ -1452,6 +1453,15 @@ $str = $str."]";
                                         .attr("fill", function(d) {return color[j - 1];});
 
                                 }
+
+                            d3.select("body").append("div")
+                                .classed("argument", true)
+                                .style("position", "absolute")
+                                .style("width", "300px")
+                                .style("left", 1020 + "px")
+                                .style("top", 170 + "px")
+                                .html(argu[d.code]);
+
                         })
                         .on("mouseout", function(d){
                             d3.selectAll(".indivudial_vote").remove();
@@ -1465,9 +1475,10 @@ $str = $str."]";
 
                             d3.selectAll(".handler").style("visibility", "visible");
 
+                            d3.select(".argument").remove();
+
                         })
                     ;
-
 
 
 
@@ -1597,14 +1608,14 @@ $str = $str."]";
 
 
 
-                console.log("requested");
+//                console.log("requested");
 
             }
 
 
 
         },
-        xmlhttp.open("GET","overall_data.php?decision_id=<?php echo $_GET['decision_id']?>",true);
+            xmlhttp.open("GET","overall_data.php?decision_id=<?php echo $_GET['decision_id']?>",true);
         xmlhttp.send();
 
 
@@ -1619,11 +1630,11 @@ $str = $str."]";
 
 
 
-//    loadXMLDoc();
+    //    loadXMLDoc();
     var t=setInterval("loadXMLDoc()",2000);
 
 
-    </script>
+</script>
 
 
 <!--<script src="overall.js"></script>-->

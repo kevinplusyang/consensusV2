@@ -83,7 +83,7 @@ $user_name = $row['user_name'];
 <div></div>
 <div style="width:1000px;float:right;">
 
-    <a href="https://goo.gl/forms/uCr5fzATWJW1AGKo2" class="button button-rounded button-raised" style="margin-left: 750px;  margin-top: 5px; float:left">Next</a>
+    <a href="holdpage_4.php?decision_id=<?php echo $_GET['decision_id']?>&user_id=<?php echo $_GET['user'];?>" class="button button-rounded button-raised" style="margin-left: 750px;  margin-top: 5px; float:left">Next</a>
 
 </div>
 

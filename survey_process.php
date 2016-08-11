@@ -18,11 +18,6 @@ require_once "dbaccess.php";
 
 mysql_query("insert into survey values ('','".$_GET['decision_id']."','".$_GET['user_id']."','1','".$_POST['q1']."')");
 mysql_query("insert into survey values ('','".$_GET['decision_id']."','".$_GET['user_id']."','2','".$_POST['q2']."')");
-mysql_query("insert into survey values ('','".$_GET['decision_id']."','".$_GET['user_id']."','3','".$_POST['q3']."')");
-mysql_query("insert into survey values ('','".$_GET['decision_id']."','".$_GET['user_id']."','4','".$_POST['q4']."')");
-mysql_query("insert into survey values ('','".$_GET['decision_id']."','".$_GET['user_id']."','5','".$_POST['q5']."')");
-mysql_query("insert into survey values ('','".$_GET['decision_id']."','".$_GET['user_id']."','6','".$_POST['q6']."')");
-mysql_query("insert into survey values ('','".$_GET['decision_id']."','".$_GET['user_id']."','7','".$_POST['q7']."')");
 
 
 ?>

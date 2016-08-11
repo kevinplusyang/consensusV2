@@ -27,8 +27,18 @@ echo $_POST['participate'];
 echo $_POST['type'];
 
 
-mysql_query("insert into user values ('','".$_POST['username']."','".$_POST['email']."','".md5($_POST['password'])."') ");
+$user_num = $_POST['participate'] * 3 + 1;
 
+
+
+mysql_query("insert into reason values('','1','No Data') ");
+mysql_query("insert into reason values('','1','No Data') ");
+
+
+echo "Now";
+
+
+mysql_query("insert into user values ('','".$_POST['username']."','".$_POST['email']."','".md5($_POST['password'])."') ");
 
 $result = mysql_query("select * from user where email = '".$_POST['email']."' ");
 $row = mysql_fetch_array($result);
@@ -36,61 +46,143 @@ $user_id = $row['id'];
 
 
 
-$decision_id = $_POST['participate'];
-
-$sql_count = "select count(*) from participate where decision_id = '".$decision_id."' ";
-$result_count = mysql_query($sql_count);
-$row_count = mysql_fetch_array( $result_count );
-$user_num = $row_count[0]+1;
-
-mysql_query("insert into participate values('','".$decision_id."','".$user_num."','".$user_id."')");
-mysql_query("update decision set user_num = user_num + 1 where id = '".$decision_id."'");
+mysql_query("insert into decision values ('', 'Test1', 'No', '1', '4','3','".$user_num."','".$_POST['type']."')");
+mysql_query("insert into participate values('','1','1','1')");
 
 
-
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','1','1','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','2','1','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','3','1','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','4','1','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','1','2','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','2','2','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','3','2','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','4','2','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','1','3','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','2','3','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','3','3','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','4','3','-1')");
+for($i = 0; $i < $_POST['participate'] * 3; $i++){
+    $j = $i + 2;
+    mysql_query("insert into participate values('','1','".$j."','".$j."')");
+}
 
 
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','0','1','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','0','2','-1')");
-mysql_query("insert into score values('','".$decision_id."','".$user_num."','0','3','-1')");
 
 
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','1','1','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','2','1','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','3','1','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','4','1','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','1','2','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','2','2','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','3','2','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','4','2','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','1','3','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','2','3','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','3','3','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','4','3','-1')");
+
+mysql_query("insert into score values('','1','1','1','1','-1','A')");
+mysql_query("insert into score values('','1','1','2','1','-1','A')");
+mysql_query("insert into score values('','1','1','3','1','-1','A')");
+mysql_query("insert into score values('','1','1','4','1','-1','A')");
+mysql_query("insert into score values('','1','1','1','2','-1','A')");
+mysql_query("insert into score values('','1','1','2','2','-1','A')");
+mysql_query("insert into score values('','1','1','3','2','-1','A')");
+mysql_query("insert into score values('','1','1','4','2','-1','A')");
+mysql_query("insert into score values('','1','1','1','3','-1','A')");
+mysql_query("insert into score values('','1','1','2','3','-1','A')");
+mysql_query("insert into score values('','1','1','3','3','-1','A')");
+mysql_query("insert into score values('','1','1','4','3','-1','A')");
 
 
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','0','1','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','0','2','-1')");
-mysql_query("insert into score_backup values('','".$decision_id."','".$user_num."','0','3','-1')");
+mysql_query("insert into score values('','1','1','0','1','-1','A')");
+mysql_query("insert into score values('','1','1','0','2','-1','A')");
+mysql_query("insert into score values('','1','1','0','3','-1','A')");
+
+
+mysql_query("insert into score_backup values('','1','1','1','1','-1')");
+mysql_query("insert into score_backup values('','1','1','2','1','-1')");
+mysql_query("insert into score_backup values('','1','1','3','1','-1')");
+mysql_query("insert into score_backup values('','1','1','4','1','-1')");
+mysql_query("insert into score_backup values('','1','1','1','2','-1')");
+mysql_query("insert into score_backup values('','1','1','2','2','-1')");
+mysql_query("insert into score_backup values('','1','1','3','2','-1')");
+mysql_query("insert into score_backup values('','1','1','4','2','-1')");
+mysql_query("insert into score_backup values('','1','1','1','3','-1')");
+mysql_query("insert into score_backup values('','1','1','2','3','-1')");
+mysql_query("insert into score_backup values('','1','1','3','3','-1')");
+mysql_query("insert into score_backup values('','1','1','4','3','-1')");
+
+
+mysql_query("insert into score_backup values('','1','1','0','1','-1')");
+mysql_query("insert into score_backup values('','1','1','0','2','-1')");
+mysql_query("insert into score_backup values('','1','1','0','3','-1')");
+
+
+
+
+for($i = 0; $i <= 5; $i++){
+    $arr[$i] = $i + 1;
+}
+
+
+
+
+
+shuffle($arr);
+
+print_r($arr);
+
+
+
+
+
+for($i = 0; $i < $_POST['participate'] * 3; $i++){
+    $result = mysql_query("select * from name where id = '".$arr[$i]."' ");
+    $row = mysql_fetch_array($result);
+    $name = $row['name'];
+
+    $j = $i + 2;
+    mysql_query("insert into user values ('','".$name."','x@ucsd.edu','".md5(1234)."') ");
+
+}
+
+
+
+
+
+
+//for($i = 0 ;$i < $_POST['participate'] ; $i++){
+//    $result = mysql_query("select * from score_pool_adam where user_id = '".$arr[$i]."' ");
+//    while($row = mysql_fetch_array($result)){
+//        $j = $i +1;
+//        mysql_query("insert into score values('','','".$j."','".$row['criteria_id']."','".$row['candidate_id']."','".$row['score']."','".$row['argument']."')");
+//
+//    }
+//
+//}
+
+
+
+
+for($i = 0 ;$i < $_POST['participate'] ; $i++){
+    $result = mysql_query("select * from score_pool_adam where user_id = '".$arr[$i]."' ");
+    while($row = mysql_fetch_array($result)){
+        $j = $i +2;
+        mysql_query("insert into score values('','1','".$j."','".$row['criteria_id']."','".$row['candidate_id']."','".$row['score']."','".$row['argument']."')");
+
+    }
+
+}
+
+
+
+
+for($i = 0 ;$i < $_POST['participate'] ; $i++){
+    $result = mysql_query("select * from score_pool_jim where user_id = '".$arr[$i]."' ");
+    while($row = mysql_fetch_array($result)){
+        $j = $i + $_POST['participate'] +2;
+        mysql_query("insert into score values('','1','".$j."','".$row['criteria_id']."','".$row['candidate_id']."','".$row['score']."','".$row['argument']."')");
+
+    }
+
+}
+
+
+for($i = 0 ;$i < $_POST['participate'] ; $i++){
+    $result = mysql_query("select * from score_pool_sam where user_id = '".$arr[$i]."' ");
+    while($row = mysql_fetch_array($result)){
+        $j = $i + $_POST['participate']*2 +2;
+        mysql_query("insert into score values('','1','".$j."','".$row['criteria_id']."','".$row['candidate_id']."','".$row['score']."','".$row['argument']."')");
+
+    }
+
+}
 
 
 ?>
 
 
 <!-- jQuery -->
-<meta http-equiv=refresh content="0.00005; url=control_panel.php">
+<!--<meta http-equiv=refresh content="0.00005; url=control_panel.php">-->
 
 </body>
 

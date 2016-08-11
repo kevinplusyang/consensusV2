@@ -51,70 +51,27 @@ while($row = mysql_fetch_array($result)){
                 ?></td>
         </tr>
 
-        <tr>
-            <td>Academic: </td>
-            <td><?php
-                $result2 = mysql_query("select * from survey where decision_id = '".$_GET['decision_id']."' and user_id = '".$user_id."' and question_id = '3' ");
-                $row = mysql_fetch_array($result2);
-                if($row['answer']==1){
-                    echo "Like";
-                } if($row['answer']==2){
-                    echo "Unlike";
-                }
 
-                ?></td>
-        </tr>
 
         <tr>
-            <td>Extracurricular: </td>
+            <td>1. How much confidence do you have to your vote?</td>
             <td><?php
                 $result2 = mysql_query("select * from survey where decision_id = '".$_GET['decision_id']."' and user_id = '".$user_id."' and question_id = '4' ");
-                $row = mysql_fetch_array($result2);
-                if($row['answer']==1){
-                    echo "Like";
-                } if($row['answer']==2){
-                    echo "Unlike";
-                }
-                ?></td>
-        </tr>
-
-        <tr>
-            <td>Recommendation Letter: </td>
-            <td><?php
-                $result2 = mysql_query("select * from survey where decision_id = '".$_GET['decision_id']."' and user_id = '".$user_id."' and question_id = '5' ");
-                $row = mysql_fetch_array($result2);
-                if($row['answer']==1){
-                    echo "Like";
-                } if($row['answer']==2){
-                    echo "Unlike";
-                }
-                ?></td>
-        </tr>
-
-        <tr>
-            <td>Fit: </td>
-            <td><?php
-                $result2 = mysql_query("select * from survey where decision_id = '".$_GET['decision_id']."' and user_id = '".$user_id."' and question_id = '6' ");
-                $row = mysql_fetch_array($result2);
-                if($row['answer']==1){
-                    echo "Like";
-                }
-
-                if($row['answer']==2){
-                    echo "Unlike";
-                }
-                ?></td>
-        </tr>
-
-
-        <tr>
-            <td>What other criteria would you like to add?</td>
-            <td><?php
-                $result2 = mysql_query("select * from survey where decision_id = '".$_GET['decision_id']."' and user_id = '".$user_id."' and question_id = '7' ");
                 $row = mysql_fetch_array($result2);
                 echo $row['answer'];
                 ?></td>
         </tr>
+
+        <tr>
+            <td>2. How much willingness do you have to change your vote?</td>
+            <td><?php
+                $result2 = mysql_query("select * from survey where decision_id = '".$_GET['decision_id']."' and user_id = '".$user_id."' and question_id = '5' ");
+                $row = mysql_fetch_array($result2);
+                echo $row['answer'];
+                ?></td>
+        </tr>
+
+
     </table>
 
     <br>

@@ -62,22 +62,22 @@ Add a New User:
     <br>
     How many fake users will play with this participant?
     <select name="participate">
-        <option value="3">
+        <option value="1">
             3
         </option>
-        <option value="6">
+        <option value="2">
             6
         </option>
-        <option value="9">
+        <option value="3">
             9
         </option>
-        <option value="12">
+        <option value="4">
             12
         </option>
-        <option value="15">
+        <option value="5">
             15
         </option>
-        <option value="18">
+        <option value="6">
             18
         </option>
     </select>
