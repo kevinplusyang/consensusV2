@@ -13,13 +13,13 @@ require_once "dbaccess.php";
 <body>
 
 <?php
-echo $_POST['decision_name'];
-echo $_POST['description'];
+echo htmlspecialchars($_POST['decision_name']);
+echo htmlspecialchars($_POST['description']);
 echo $_SESSION['user_id'];
 //mysql_query("insert into decision values ('','".$_POST['e2_id']."','".$_GET['e1_id']."','".$_POST['name']."')");
-mysql_query("insert into decision values ('', '".$_POST['decision_name']."', '".$_POST['description']."', '".$_SESSION['user_id']."', '3','4','1')");
+mysql_query("insert into decision values ('', '".mysql_real_escape_string($_POST['decision_name'])."', '".mysql_real_escape_string($_POST['description'])."', '".intval($_SESSION['user_id'])."', '3','4','1')");
 
-$result = mysql_query("select * from decision where name = '".$_POST['decision_name']."' ");
+$result = mysql_query("select * from decision where name = '".mysql_real_escape_string($_POST['decision_name'])."' ");
 $row = mysql_fetch_array($result);
 $decision_id = $row['id'];
 
