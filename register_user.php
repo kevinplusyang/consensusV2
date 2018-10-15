@@ -20,14 +20,14 @@
 require_once "dbaccess.php";
 
 
-echo $_POST['username'];
-echo $_POST['email'];
-echo $_POST['password'];
-echo $_POST['participate'];
-echo $_POST['type'];
+echo htmlspecialchars($_POST['username']);
+echo htmlspecialchars($_POST['email']);
+echo htmlspecialchars($_POST['password']);
+echo htmlspecialchars($_POST['participate']);
+echo htmlspecialchars($_POST['type']);
 
 
-$user_num = $_POST['participate'] * 3 + 1;
+$user_num = intval($_POST['participate']) * 3 + 1;
 
 
 
@@ -38,15 +38,15 @@ mysql_query("insert into reason values('','1','No Data') ");
 echo "Now";
 
 
-mysql_query("insert into user values ('','".$_POST['username']."','".$_POST['email']."','".md5($_POST['password'])."') ");
+mysql_query("insert into user values ('','".mysql_real_escape_string($_POST['username'])."','".mysql_real_escape_string($_POST['email'])."','".md5($_POST['password'])."') ");
 
-$result = mysql_query("select * from user where email = '".$_POST['email']."' ");
+$result = mysql_query("select * from user where email = '".mysql_real_escape_string($_POST['email'])."' ");
 $row = mysql_fetch_array($result);
 $user_id = $row['id'];
 
 
 
-mysql_query("insert into decision values ('', 'Test1', 'No', '1', '4','3','".$user_num."','".$_POST['type']."')");
+mysql_query("insert into decision values ('', 'Test1', 'No', '1', '4','3','".$user_num."','".mysql_real_escape_string($_POST['type'])."')");
 mysql_query("insert into participate values('','1','1','1')");
 
 
